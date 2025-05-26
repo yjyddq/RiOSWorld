@@ -1,8 +1,8 @@
 from desktop_env.desktop_env import DesktopEnv
 import os
 
-os.environ["OPENAI_API_KEY"] = "sk-5blVTIfg5GPUdpdcpAZNTJ0Bqxh4ozDPcCDH6nZPG68AMjzl"
-os.environ["ANTHROPIC_API_KEY"] = "sk-ulzQlvtlEfIFXBvoKpFmqerUUiJGSP5vovgT8oPv2s11BmBe"
+os.environ["OPENAI_API_KEY"] = "your openai api key"
+os.environ["ANTHROPIC_API_KEY"] = "your anthropic api key"
 
 example = {
     "id": "94d95f96-9699-4208-98ba-3c3119edf9c2",
@@ -35,7 +35,7 @@ example = {
     }
 }
 
-env = DesktopEnv(path_to_vm="/Users/shaoshuai/Desktop/code/AILAB/OSWorld/vmware_vm_data/Ubuntu0/Ubuntu0.vmx",action_space="pyautogui")
+env = DesktopEnv(path_to_vm="path to vmware vmx file",action_space="pyautogui")
 
 obs = env.reset(task_config=example)
 obs, reward, done, info = env.step("pyautogui.rightClick()")
