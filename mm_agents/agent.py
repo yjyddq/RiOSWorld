@@ -644,11 +644,6 @@ class PromptAgent:
         else:
             raise ValueError("Invalid observation_type type: " + self.observation_type)  # 1}}}
 
-        # with open("messages.json", "w") as f:
-        #     f.write(json.dumps(messages, indent=4))
-
-        # logger.info("PROMPT: %s", messages)
-
         try:
             response = self.call_llm({
                 "model": self.model,
@@ -817,44 +812,23 @@ class PromptAgent:
             # warnings.filterwarnings("ignore", category=FutureWarning)
             # from lmdeploy.serve.openai.api_client import APIClient
             from openai import OpenAI
-            
+            base_url = os.environ["LMDEPLOY_BASE_URL"]
             messages = payload["messages"]
             max_tokens = payload["max_tokens"]
             top_p = payload["top_p"]
             temperature = payload["temperature"]
             lmdeploy_messages = messages
-            # lmdeploy_messages = []
-            # for i, message in enumerate(messages):
-            #     lmdeploy_message = {
-            #         "role": message["role"],
-            #         "content": []
-            #     }
-
-            #     for part in message["content"]:
-            #         if part['type'] == "image_url":
-            #             lmdeploy_message['content'].append(
-            #                 {"type": "image_url", "image_url": {"url": part['image_url']['url']}})
-
-            #         if part['type'] == "text":
-            #             lmdeploy_message['content'].append({"type": "text", "text": part['text']})
-
-            #     lmdeploy_messages.append(lmdeploy_message)
 
             if lmdeploy_messages[0]['role'] == "system":
                 lmdeploy_system_message_item = lmdeploy_messages[0]['content'][0]
                 lmdeploy_messages[1]['content'].insert(0, lmdeploy_system_message_item)
                 lmdeploy_messages.pop(0)
             # The implementation based on LMDeploy
-            # client = APIClient('http://10.140.1.25:23333')  # you need to modify the IP address when you use another compute node
+            # client = APIClient('your lmdeploy server ip')  # you need to modify the IP address when you use another compute node
             # model_name = client.available_models[0]
 
             # The implementation based on OpenAI
-            if 'Qwen2.5-VL-72B-Instruct' in self.model:
-                base_url = "http://10.140.54.37:23333/v1"
-            elif 'llama-3.2-90b-vision-instruct' in self.model:
-                base_url = "http://10.140.54.10:23333/v1"
-            elif 'Qwen2-VL-72B-Instruct' in self.model:
-                base_url = "http://10.140.54.84:23333/v1"
+            
             client = OpenAI( 
                 base_url=base_url, api_key="EMPTY") # you need to modify the IP address when you use another compute node
             model_name = client.models.list().data[0].id
@@ -864,14 +838,7 @@ class PromptAgent:
                 try:
                     if flag > 20:
                         break
-                    logger.info("Generating content with Qwen model: %s", self.model)
-                    # The implementation based on LMDeploy
-                    # for item in client.chat_completions_v1(model=model_name, 
-                    #                       messages=lmdeploy_messages,
-                    #                       max_length=max_tokens,
-                    #                       top_p=top_p,
-                    #                       temperature=temperature):
-                    #     response = item
+                    logger.info("Generating content with model: %s", self.model)
 
                     # The implementation based on OpenAI
                     response = client.chat.completions.create(
@@ -901,13 +868,10 @@ class PromptAgent:
                 "Content-Type": "application/json",
                 "Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}"
             }
-            # Baseurl = "https://api.claudeshop.top"
-            # Baseurl = "https://boyuerichdata.chatgptten.com"
-            url = "https://api.chataiapi.com/v1/chat/completions"
+            url = os.environ["OPENAI_URL_BASE"]
             logger.info("Generating content with GPT model: %s", self.model)
             logger.info(f"url: {url}")
             response = requests.post(
-                # "https://api.openai.com/v1/chat/completions", # original
                 url,
                 headers=headers,
                 json=payload
@@ -918,7 +882,6 @@ class PromptAgent:
                     logger.error("Context length exceeded. Retrying with a smaller context.")
                     payload["messages"] = [payload["messages"][0]] + payload["messages"][-1:]
                     retry_response = requests.post(
-                        # "https://api.openai.com/v1/chat/completions",
                         url,
                         headers=headers,
                         json=payload
@@ -933,8 +896,6 @@ class PromptAgent:
                 return ""
             else:
                 logger.info(f"response:{response}")
-                # logger.info(f"response.json(): {response.json()}, response.json()['choices'][0]['message']['content']: {response.choices[0].message.content}")
-                # logger.info(f"response:{response}")
                 try:
                     import inspect
                     logger.info(f"type(response): {type(response)}, dir(response): {dir(response)}")
@@ -953,10 +914,8 @@ class PromptAgent:
                 "Content-Type": "application/json",
                 "Authorization": f"Bearer {os.environ['ANTHROPIC_API_KEY']}"
             }
-            # url = "https://api.chataiapi.com/v1/chat/completions"
-            # url = "http://35.220.164.252:3888/v1/chat/completions"
-            url = "https://api.ai190.com/v1/chat/completions"
-            # url = Baseurl + "/v1/chat/completions"
+
+            url = os.environ["CLAUDE_URL_BASE"]
             logger.info("Generating content with Claude model: %s", self.model)
             response = requests.post(
                 url,
@@ -984,88 +943,19 @@ class PromptAgent:
                 return ""
             else:
                 logger.info("response.json(): %s", response.json())
-                # logger.info(f"response.json(): {response.json()}, response.json()['choices'][0]['message']['content']: {response.choices[0].message.content}")
-                # logger.info(f"response.json()['choices'][0]['message']['content']: {response.choices[0].message.content}")
-                # logger.info(f"response:{response}")
                 logger.info("response.json()['choices'][0]['message']['content']: %s", response.json()['choices'][0]['message']['content'])
                 return response.json()['choices'][0]['message']['content']
-
-        # elif self.model.startswith("claude"):
-        #     messages = payload["messages"]
-        #     max_tokens = payload["max_tokens"]
-        #     top_p = payload["top_p"]
-        #     temperature = payload["temperature"]
-
-        #     claude_messages = []
-
-        #     for i, message in enumerate(messages):
-        #         claude_message = {
-        #             "role": message["role"],
-        #             "content": []
-        #         }
-        #         assert len(message["content"]) in [1, 2], "One text, or one text with one image"
-        #         for part in message["content"]:
-
-        #             if part['type'] == "image_url":
-        #                 image_source = {}
-        #                 image_source["type"] = "base64"
-        #                 image_source["media_type"] = "image/png"
-        #                 image_source["data"] = part['image_url']['url'].replace("data:image/png;base64,", "")
-        #                 claude_message['content'].append({"type": "image", "source": image_source})
-
-        #             if part['type'] == "text":
-        #                 claude_message['content'].append({"type": "text", "text": part['text']})
-
-        #         claude_messages.append(claude_message)
-
-        #     # the claude not support system message in our endpoint, so we concatenate it at the first user message
-        #     if claude_messages[0]['role'] == "system":
-        #         claude_system_message_item = claude_messages[0]['content'][0]
-        #         claude_messages[1]['content'].insert(0, claude_system_message_item)
-        #         claude_messages.pop(0)
-
-        #     logger.debug("CLAUDE MESSAGE: %s", repr(claude_messages))
-
-        #     headers = {
-        #         "x-api-key": os.environ["ANTHROPIC_API_KEY"],
-        #         "anthropic-version": "2023-06-01",
-        #         "content-type": "application/json"
-        #     }
-
-        #     payload = {
-        #         "model": self.model,
-        #         "max_tokens": max_tokens,
-        #         "messages": claude_messages,
-        #         "temperature": temperature,
-        #         "top_p": top_p
-        #     }
-
-        #     response = requests.post(
-        #         "https://api.anthropic.com/v1/messages",
-        #         headers=headers,
-        #         json=payload
-        #     )
-
-        #     if response.status_code != 200:
-
-        #         logger.error("Failed to call LLM: " + response.text)
-        #         time.sleep(5)
-        #         return ""
-        #     else:
-        #         return response.json()['content'][0]['text']
 
         elif self.model.startswith("gemini"):
             headers = {
                 "Content-Type": "application/json",
                 "Authorization": f"Bearer {os.environ['GOOGLE_API_KEY']}"
             }
-            url = "https://api.chataiapi.com/v1/chat/completions"
-            # url = Baseurl + "/v1/chat/completions"
+            url = os.environ["GEMINI_URL_BASE"]
             logger.info("Generating content with Gemini model: %s", self.model)
             
 
             response = requests.post(
-                # "https://api.openai.com/v1/chat/completions", # original
                 url,
                 headers=headers,
                 json=payload
@@ -1123,7 +1013,7 @@ class PromptAgent:
             from openai import OpenAI
 
             client = OpenAI(api_key=os.environ["TOGETHER_API_KEY"],
-                            base_url='https://api.together.xyz',
+                            base_url=os.environ["TOGETHER_URL_BASE"],
                             )
 
             flag = 0

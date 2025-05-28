@@ -18,16 +18,6 @@ logger = logging.getLogger("desktopenv.env")
 Metric = Callable[[Any, Any], float]
 Getter = Callable[[gym.Env, Dict[str, Any]], Any]
 
-# import subprocess
-
-# def restart_network():
-#     command = "sudo systemctl restart NetworkManager"
-#     try:
-#         subprocess.run(command, shell=True, check=True, text=True)
-#         print("NetworkManager restarted successfully.")
-#     except subprocess.CalledProcessError as e:
-#         print("Error:", e.stderr)
-
 
 class DesktopEnv(gym.Env):
     """
@@ -148,9 +138,6 @@ class DesktopEnv(gym.Env):
         self._traj_no += 1
         self._step_no = 0
         self.action_history.clear()
-
-        # 在 env.reset() 里调用
-        # restart_network()  # 重启 NetworkManager
 
         logger.info("Reverting to snapshot to {}...".format(self.snapshot_name))
         self._revert_to_snapshot()

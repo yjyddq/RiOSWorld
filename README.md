@@ -46,3 +46,16 @@ python run_minimal_example.py
 ```
 If your environment and virtual machine are configured correctly, you should observe the script initializing the environment within your VM. Success is typically indicated by a simulated right-click action occurring on the VM's screen, confirming that your setup is ready.
 
+## 🧪Experiment
+To conduct experiments, we provide the multi_llm_run.sh script. Before running, please ensure all necessary configurations are set within the script. You can then execute it using:
+```bash
+bash multi_llm_run.sh
+```
+
+
+For evaluation, especially for assessing the intentions of Agents using LLM-judges, an automated pipeline is also available via the multi_evaluation.sh script.
+
+Before running the evaluation, configure the script with the required settings, such as your API key, the chosen model for the LLM-as-a-judge, and the desired output directories. Then, execute the script:
+```bash
+bash multi_evaluation.sh
+```
