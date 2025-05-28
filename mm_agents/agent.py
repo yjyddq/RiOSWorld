@@ -1245,61 +1245,16 @@ class PromptAgent:
             )
 
             return response.text
-
-        # elif self.model.startswith("llama") or self.model.startswith("meta"):
-        #     headers = {
-        #         "Content-Type": "application/json",
-        #         "Authorization": f"Bearer {os.environ['LLAMA_API_KEY']}"
-        #     }
-        #     url = "http://35.220.164.252:3888/v1/chat/completions"
-        #     # url = Baseurl + "/v1/chat/completions"
-        #     logger.info("Generating content with LLAMA model: %s", self.model)
             
-
-        #     response = requests.post(
-        #         # "https://api.openai.com/v1/chat/completions", # original
-        #         url,
-        #         headers=headers,
-        #         json=payload
-        #     )
-   
-        #     if response.status_code != 200:
-        #         if 'error' in response.json() and response.json()['error'].get('code') == "context_length_exceeded":
-        #             logger.error("Context length exceeded. Retrying with a smaller context.")
-        #             payload["messages"] = [payload["messages"][0]] + payload["messages"][-1:]
-        #             retry_response = requests.post(
-        #                 url,
-        #                 headers=headers,
-        #                 json=payload
-        #             )
-        #             if retry_response.status_code != 200:
-        #                 logger.error(
-        #                     "Failed to call LLM even after attempt on shortening the history: " + retry_response.text)
-        #                 return ""
-
-        #         logger.error("Failed to call LLM: " + response.text)
-        #         time.sleep(5)
-        #         return ""
-        #     else:
-        #         logger.info(f"response:{response}")
-        #         try:
-        #             logger.info(f"response.text: {response.text}")
-        #             return response.json()['choices'][0]['message']['content']
-        #         except Exception as e:
-        #             logger.info(f"error: {e}")
-        #             logger.info(f"response: {response}")
-        #             return response['choices'][0]['message']['content']
-
         elif 'Qwen2.5-VL-72B-Instruct' in self.model:
             headers = {
                 "Content-Type": "application/json",
                 "Authorization": f"Bearer {os.environ['QWEN_API_KEY']}"
             }
-            # logger.info(f"payload: {payload}")
-            url = "http://10.140.54.62:23333/v1/chat/completions"
+
+            url = os.environ["BASE_URL"]
             logger.info("Generating content with Qwen model: %s", self.model)
             response = requests.post(
-                # "https://api.openai.com/v1/chat/completions", # original
                 url,
                 headers=headers,
                 json=payload
@@ -1338,10 +1293,9 @@ class PromptAgent:
                 "Authorization": f"Bearer {os.environ['QWEN_API_KEY']}"
             }
             # logger.info(f"payload: {payload}")
-            url = "http://10.140.54.84:23333/v1/chat/completions"
+            url = os.environ["BASE_URL"]
             logger.info("Generating content with Qwen model: %s", self.model)
             response = requests.post(
-                # "https://api.openai.com/v1/chat/completions", # original
                 url,
                 headers=headers,
                 json=payload
@@ -1379,11 +1333,9 @@ class PromptAgent:
                 "Content-Type": "application/json",
                 "Authorization": f"Bearer {os.environ['LLAMA_API_KEY']}"
             }
-            # logger.info(f"payload: {payload}")
-            url = "http://10.140.54.111:23333/v1/chat/completions"
+            url = os.environ["BASE_URL"]
             logger.info("Generating content with llama model: %s", self.model)
             response = requests.post(
-                # "https://api.openai.com/v1/chat/completions", # original
                 url,
                 headers=headers,
                 json=payload
@@ -1742,11 +1694,11 @@ class PlannerController:
 
         # The implementation based on OpenAI
         planner = OpenAI( 
-            base_url="http://10.140.1.29:23333/v1", api_key="YOUR_API_KEY") # you need to modify the IP address when you use another compute node
+            base_url=os.environ["BASE_URL"], api_key="YOUR_API_KEY") # you need to modify the IP address when you use another compute node
         planner_model_name = planner.models.list().data[0].id
 
         controller = OpenAI( 
-            base_url="http://10.140.1.115:23333/v1", api_key="EMPTY") # you need to modify the IP address when you use another compute node
+            base_url=os.environ["BASE_URL"], api_key="EMPTY") # you need to modify the IP address when you use another compute node
         controller_model_name = controller.models.list().data[0].id
       
         flag = 0
