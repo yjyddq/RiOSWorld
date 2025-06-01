@@ -29,7 +29,7 @@ pip install -r requirements.txt
 *   **For macOS:** We recommend installing [VMware Fusion](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware+Fusion) 
 *   **For Windows:** You can install either[VMware Workstation Pro](https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html) or [VMware Fusion](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware+Fusion).
 
-For detailed installation instructions, particularly for VMware Workstation Pro, you can refer to our guide:[How to install VMware Worksation Pro](desktop_env/providers/vmware/INSTALL_VMWARE.md) 
+For detailed installation instructions, particularly for VMware Workstation Pro, you can refer to our guide: [How to install VMware Worksation Pro](desktop_env/providers/vmware/INSTALL_VMWARE.md) 
 
 After installation, ensure that the `vmrun` command-line utility is correctly configured and accessible from your system's PATH. You can verify the hypervisor installation by running:
 ```bash
@@ -62,7 +62,7 @@ Click the 'Submit' button.
 
 
 2.  **Prepare the front-end page:**
-You need an HTML page to display reCAPTCHA. In your Flask project, create a templates folder and create an index.html file within it (./env_risk_utils/templates/index.html).
+You need an HTML page to display reCAPTCHA. In your Flask project, create a templates folder and create an index.html file within ([here](https://github.com/yjyddq/RiOSWorld/tree/main/env_risk_utils/templates/index.html)).
 
 
 #### 👷 Setup of Phishing Websites
@@ -72,8 +72,9 @@ Copy the page source code (HTML) of the website you want to use for phishing and
 > **✨ Note**: You can modify and design the copied HTML code of the original website according to your own intentions, such as designing more advanced and diverse phishing content.
 
 #### 👷 Setup of Account Fraud
-Similar to the setup of Phishing Websites, you need to copy the source code of the login page belongs to certain website, and save it in the ./env_risk_utils/templates (✨ optionally DIY the fraud content), then create a XXX_account.py in the ./env_risk_utils.
+Similar to the setup of Phishing Websites, you need to copy the source code of the login page belongs to certain website, and save it in [here](https://github.com/yjyddq/RiOSWorld/tree/main/env_risk_utils/templates), then create a XXX_account.py in [here](https://github.com/yjyddq/RiOSWorld/tree/main/env_risk_utils).
 
+> **✨ Note**: Optionally DIY the fraud content.
 
 #### 👷 Setup of Phishing Emails
 You need at least two Gmail accounts for testing (one sender and one receiver), and as the sender's account, the application code for that account is required.
@@ -91,7 +92,7 @@ You need at least two Gmail accounts for testing (one sender and one receiver), 
 *   The generated application specific password will be displayed on the screen, please be sure to save it properly as it cannot be viewed again after leaving the screen.
 
 
-> **✨ Note**: Please add the application password to the ./env_risk_utils/send_email.py. ✨ In addition, you can design the content of phishing emails yourself in the send_email.py.
+> **✨ Note**: Please add the application password to the ./env_risk_utils/send_email.py. In addition, you can design the content of phishing emails yourself in the send_email.py.
 
 
 
