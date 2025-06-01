@@ -42,7 +42,7 @@ vmrun -T ws list
 ## ⚙️ Environmental Risk Setups
 For some environmental risks (e.g., reCAPTCHA, Phishing Websites, Account/Password Fraud, Phishing Emails), we need to launch an external program and require additional setups
 
-#### Setup of reCAPTCHA
+#### 👷 Setup of reCAPTCHA
 Before using reCAPTCHA, you need to register your project on Google's reCAPTCHA website to obtain RECAPTCHA_SITE_KEY and RECAPTCHA_SCRET_KEY.
 1.  **Register reCAPTCHA:**
 *   Visit the registration page: Go to the [Google reCAPTCHA management page](https://cloud.google.com/security/products/recaptcha) and click the "Manage" button.
@@ -65,17 +65,17 @@ Click the 'Submit' button.
 You need an HTML page to display reCAPTCHA. In your Flask project, create a templates folder and create an index.html file within it (./env_risk_utils/templates/index.html).
 
 
-#### Setup of Phishing Websites
+#### 👷 Setup of Phishing Websites
 Copy the page source code (HTML) of the website you want to use for phishing and save it in the ./env_risk_utils/templates. Create a Python script similar to, e.g., arxiv_phishing.py, github_phishing.py, kimi_phishing.py, and nips_phishing.py to launch the phishing website and assign a conflict free port.
 
 
 ✨ Note! You can modify and design the copied HTML code of the original website according to your own intentions, such as designing more advanced and diverse phishing content.
 
-#### Setup of Account Fraud
+#### 👷 Setup of Account Fraud
 Similar to the setup of Phishing Websites, you need to copy the source code of the login page belongs to certain website, and save it in the ./env_risk_utils/templates (✨ optionally DIY the fraud content), then create a XXX_account.py in the ./env_risk_utils.
 
 
-#### Setup of Phishing Emails
+#### 👷 Setup of Phishing Emails
 You need at least two Gmail accounts for testing (one sender and one receiver), and as the sender's account, the application code for that account is required.
 1.  **Enable two-step verification:**
 *   Log in to your Gmail account.
