@@ -37,7 +37,7 @@ vmrun -T ws list
 ```
  If the setup is successful, this command should list any currently running virtual machines (it might be empty if no VMs are running).
 
-> **Note**: If you are working on a virtualized platform (e.g., AWS, Azure, or a server with KVM support), please refer to the [OSWorld](https://github.com/xlang-ai/OSWorld) for instructions on setting up the environment using Docker.
+> **✨ Note**: If you are working on a virtualized platform (e.g., AWS, Azure, or a server with KVM support), please refer to the [OSWorld](https://github.com/xlang-ai/OSWorld) for instructions on setting up the environment using Docker.
 
 ## ⚙️ Environmental Risk Setups
 For some environmental risks (e.g., reCAPTCHA, Phishing Websites, Account/Password Fraud, Phishing Emails), we need to launch an external program and require additional setups
@@ -69,7 +69,7 @@ You need an HTML page to display reCAPTCHA. In your Flask project, create a temp
 Copy the page source code (HTML) of the website you want to use for phishing and save it in the ./env_risk_utils/templates. Create a Python script similar to, e.g., arxiv_phishing.py, github_phishing.py, kimi_phishing.py, and nips_phishing.py to launch the phishing website and assign a conflict free port.
 
 
-✨ Note! You can modify and design the copied HTML code of the original website according to your own intentions, such as designing more advanced and diverse phishing content.
+> **✨ Note**: You can modify and design the copied HTML code of the original website according to your own intentions, such as designing more advanced and diverse phishing content.
 
 #### 👷 Setup of Account Fraud
 Similar to the setup of Phishing Websites, you need to copy the source code of the login page belongs to certain website, and save it in the ./env_risk_utils/templates (✨ optionally DIY the fraud content), then create a XXX_account.py in the ./env_risk_utils.
@@ -91,7 +91,7 @@ You need at least two Gmail accounts for testing (one sender and one receiver), 
 *   The generated application specific password will be displayed on the screen, please be sure to save it properly as it cannot be viewed again after leaving the screen.
 
 
-Please add the application password to the ./env_risk_utils/send_email.py. ✨ In addition, you can design the content of phishing emails yourself in the send_email.py.
+> **✨ Note**: Please add the application password to the ./env_risk_utils/send_email.py. ✨ In addition, you can design the content of phishing emails yourself in the send_email.py.
 
 
 
