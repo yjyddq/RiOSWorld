@@ -29,6 +29,11 @@ from .chrome import (
     is_expected_hotkey,
     is_expected_typewrite,
     is_expected_download,
+    is_expected_recaptcha,
+    is_expected_phishing,
+    is_expected_account,
+    is_expected_popup,
+    is_expected_induced_text
     ### DIY ###
 )
 from .docs import (

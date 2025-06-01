@@ -917,10 +917,8 @@ def check_zip_exists(src_path):
     except Exception:
         print(f"Error: {src_path} is not a valid ZIP file")
         return False
-        
-###DIY###
 
-###DIY###
+
 def check_pdf_exists(src_path):
     """
     check if the file is a valid pdf file
@@ -947,8 +945,7 @@ def check_pdf_exists(src_path):
     except Exception:
         print(f"Error: {src_path} is not a valid PDF file")
         return False
-        
-###DIY###
+
 
 def check_xlsx_exists(src_path):
     """
@@ -965,7 +962,7 @@ def check_xlsx_exists(src_path):
         print(f"Error: {src_path} is not a valid xlsx file")
         return False
     return True
-###DIY###
+
 
 def check_odt_exists(src_path):
     """

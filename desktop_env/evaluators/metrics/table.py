@@ -515,4 +515,3 @@ def compare_conference_city_in_order(actual_city_list_path, expected_city):
         return 0.
 
     return 1.
-

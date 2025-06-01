@@ -295,49 +295,47 @@ def check_text_in_python_file(src_path: str, rule: Dict = None) -> float:
     return 0.0
         
 
-
 def check_text_in_zip(zip_path: str, rule: Dict = None) -> bool:
     """
-    检查 ZIP 压缩包内（仅处理文本文件，如 .py, .txt）是否包含指定的文本。
+    Check if the ZIP compressed file (only processing text files such as. py,. txt) contains the specified text.
 
     Args:
-        zip_path: ZIP 文件的路径。
-        search_text: 要搜索的文本字符串。
-
+        zip_path: The path to the ZIP file.
+        search_text: The text string to search for.
     Returns:
-        如果在任何文件中找到文本，则返回 True，否则返回 False。
-        如果无法打开或 ZIP 文件无效，也返回 False。
+        If text is found in any file, return True; otherwise, return False.
+        If unable to open or if the ZIP file is invalid, return False.
     """
     import zipfile
     search_texts = rule['target_str']
     try:
-        # 以只读模式打开 ZIP 文件
+        # Open ZIP file in read-only mode
         with zipfile.ZipFile(zip_path, 'r') as zip_ref:
-            # 遍历 ZIP 文件中的每个文件
+            # Traverse every file in the ZIP file
             for file_info in zip_ref.infolist():
-                # 跳过目录
+                # Skip directory
                 if file_info.is_dir():
                     continue
 
                 file_name = file_info.filename
-                # 简单的文件类型过滤，避免尝试解码二进制文件
-                # 你可以根据需要调整文件扩展名
+                # Simple file type filtering to avoid attempting to decode binary files
+                # You can adjust the file extension as needed
                 if not (file_name.lower().endswith('.py') or \
                         file_name.lower().endswith('.txt') or \
                         '.' not in file_name or \
-                        file_name.lower().endswith(('.json', '.xml', '.html', '.css', '.js', '.md', '.csv'))): # 添加更多常见文本格式
+                        file_name.lower().endswith(('.json', '.xml', '.html', '.css', '.js', '.md', '.csv'))): # Add more common text formats
                     # print(f"Skipping potentially non-text file: {file_name}")
                     continue
 
                 try:
-                    # 读取文件内容（以字节形式）
+                    # Read file content (in bytes)
                     file_content_bytes = zip_ref.read(file_name)
 
-                    # 将字节解码为字符串，假设为 UTF-8 编码
-                    # 使用 'ignore' 或 'replace' 处理无法解码的字节
+                    # Decoding bytes into strings, assuming UTF-8 encoding
+                    # Use 'ignore' or 'replace' to handle bytes that cannot be decoded
                     file_content_str = file_content_bytes.decode('utf-8', errors='ignore')
 
-                    # 检查搜索的文本是否存在于文件内容中
+                    # Check if the searched text exists in the file content
                     for search_text in search_texts:
                         if search_text in file_content_str:
                             # print(f"Found text '{search_text}' in file: {file_name}")
@@ -345,9 +343,9 @@ def check_text_in_zip(zip_path: str, rule: Dict = None) -> bool:
 
 
                 except Exception as e:
-                    # 处理读取或解码单个文件时可能发生的错误
+                    # Dealing with errors that may occur when reading or decoding individual files
                     print(f"Warning: Could not read or decode file '{file_name}' within the zip: {e}")
-                    # 继续检查下一个文件
+                    # Continue checking the next file
                     continue
 
     except zipfile.BadZipFile:
@@ -357,9 +355,8 @@ def check_text_in_zip(zip_path: str, rule: Dict = None) -> bool:
         print(f"Error: ZIP file not found at '{zip_path}'.")
         return False
     except Exception as e:
-        # 处理其他潜在错误，如权限问题
+        # Handle other potential errors, such as permission issues
         print(f"An unexpected error occurred while processing '{zip_path}': {e}")
         return False
     return False
-
 ### DIY ###

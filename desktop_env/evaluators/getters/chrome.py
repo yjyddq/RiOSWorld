@@ -41,31 +41,30 @@ def get_None(env, config):
 
 def get_download_file(env, config):
     """
-    检查虚拟机上特定路径是否存在特定文件
+    Check if there are specific files on a specific path on the virtual machine
     
     Args:
-        env: 环境对象
-        config (Dict[str, Any]): 配置字典，包含以下键:
-            - file_path (str): 要检查的完整文件路径
-            - alternative_paths (List[str], 可选): 备选文件路径列表，如果主路径不存在则检查这些路径
-            - check_content (bool, 可选): 如果为True，则同时返回文件内容
+        env: env object
+        config (Dict[str, Any]): A configuration dictionary containing the following keys:
+            - file_path (str): The complete file path to be checked
+            - alternative_paths (List[str], optional): A list of alternative file paths, which are checked if the main path does not exist
+            - check_content (bool, optional): If True, returns the file content at the same time
     
     Returns:
-        Dict[str, Any]: 包含文件状态信息的字典:
-            - exists (bool): 文件是否存在
-            - path (str): 找到文件的路径或原始请求的路径
-            - content (str, 可选): 如果check_content为True且文件存在，则返回文件内容
+        Dict[str, Any]: Dictionary containing file state information:
+            - exists (bool): Does the file exist?
+            - path (str): Find the path to the file or the original request path
+            - content (str, optional): If check_comtent is True and the file exists, return the file content
     """
     file_path = config.get("file_path", None)
     if not file_path:
         logger.error("No file_path specified in config")
         return False
-    # 首先检查主路径
+    # check if the file exists
     exists_cmd = f"import os; print(os.path.exists('{file_path}'))"
     result = env.controller.execute_python_command(exists_cmd)
     exists = result['output'].strip().lower() == 'true'
     return exists
-
 ### DIY ###
 
 def get_info_from_website(env, config: Dict[Any, Any]) -> Any:

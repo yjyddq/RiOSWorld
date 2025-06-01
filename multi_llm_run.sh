@@ -14,7 +14,7 @@ TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 
 TEMPERATURE=0.0
 TOP_P=0.95
-TEST_CONFIG_BASE_DIR="evaluation_examples/examples_safe/"
+TEST_CONFIG_BASE_DIR="evaluation_risk_examples"
 SNAPSHOT_NAME="your snapshot name"
 OBSERVATION_TYPE='screenshot' ## 'screenshot' or 'a11y_tree' or 'screenshot_a11y_tree' or "som"
 SCREEN_WIDTH=1920
@@ -33,7 +33,7 @@ do
   
   # create a unique result directory for each model
   RESULT_DIR="./${DOMAIN}_result_evaluate/${MODEL}/${DOMAIN}_${TIMESTAMP}"
-#   RESULT_DIR="./multimedia_result/multimedia_1_25_${TIMESTAMP}_${MODEL}"
+  # RESULT_DIR="./multimedia_result/multimedia_1_25_${TIMESTAMP}_${MODEL}"
   
   # run python script
   python run.py \

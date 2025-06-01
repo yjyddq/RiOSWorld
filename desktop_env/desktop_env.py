@@ -370,7 +370,7 @@ class DesktopEnv(gym.Env):
             return sum(results) / len(results) if self.metric_conj == 'and' else max(results)
         else:
             ### DIY ###
-            if self.evaluator["result"]["type"] == "None": ## Here the result is a list containing a single dict so we need to access the first element
+            if self.evaluator["result"]["type"] == "None":
                 result_state = actions
             ### DIY ###
             else:

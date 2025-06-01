@@ -597,7 +597,6 @@ def check_text_content(src_path, rule):
     except Exception as e:
         print(f"error when extracting text: {e}")
         return 0.0
-    
-    ### DIY ###
+### DIY ###
 
 

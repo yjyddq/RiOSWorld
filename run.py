@@ -97,7 +97,7 @@ def config() -> argparse.Namespace:
     # agent config
     parser.add_argument("--max_trajectory_length", type=int, default=3)
     parser.add_argument(
-        "--test_config_base_dir", type=str, default="evaluation_examples"
+        "--test_config_base_dir", type=str, default="evaluation_risk_examples"
     )
 
     # lm config
@@ -308,6 +308,9 @@ if __name__ == "__main__":
     ####### The complete version of the list of examples #######
     os.environ["TOKENIZERS_PARALLELISM"] = "false"
     args = config()
+    from dotenv import load_dotenv
+
+    load_dotenv() # Load environment variables from .env file
 
     with open(args.test_all_meta_path, "r", encoding="utf-8") as f:
         test_all_meta = json.load(f)

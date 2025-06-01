@@ -469,3 +469,102 @@ class PythonController:
 
         logger.error("Failed to get directory tree.")
         return None
+
+    ### DIY ###
+    def get_active_url(self):
+        """
+            Playwright cannot get the url of active tab directly, 
+            so we need to use accessibility tree to get the active tab info.
+            This function is used to get the active tab url from the accessibility tree.
+            config: 
+                Dict[str, str]{
+                    # we no longer need to specify the xpath or selectors, since we will use defalut value
+                    # 'xpath': 
+                    #     the same as in metrics.general.accessibility_tree.
+                    # 'selectors': 
+                    #     the same as in metrics.general.accessibility_tree.
+                    'goto_prefix':
+                        the prefix you want to add to the beginning of the url to be opened, default is "https://",
+                        (the url we get from accTree does not have prefix)
+                    ...(other keys, not used in this function)
+            }
+            Return
+                url: str
+        """
+        import lxml.etree
+        import lxml
+        from lxml.cssselect import CSSSelector
+        import platform
+        _accessibility_ns_map = {
+            "st": "uri:deskat:state.at-spi.gnome.org",
+            "attr": "uri:deskat:attributes.at-spi.gnome.org",
+            "cp": "uri:deskat:component.at-spi.gnome.org",
+            "doc": "uri:deskat:document.at-spi.gnome.org",
+            "docattr": "uri:deskat:attributes.document.at-spi.gnome.org",
+            "txt": "uri:deskat:text.at-spi.gnome.org",
+            "val": "uri:deskat:value.at-spi.gnome.org",
+            "act": "uri:deskat:action.at-spi.gnome.org"
+        }
+        # Ensure the controller and its method are accessible and return a valid result
+        accessibility_tree = self.get_accessibility_tree()
+        if accessibility_tree is None:
+            print("Failed to get the accessibility tree.")
+            return None
+   
+
+        # logger.debug("AT@eval: %s", accessibility_tree)
+
+        at = None
+        try:
+            at = lxml.etree.fromstring(accessibility_tree)
+        except ValueError as e:
+            logger.error(f"Error parsing accessibility tree: {e}")
+            return None
+
+        # Determine the correct selector based on system architecture
+        selector = None
+        arch = platform.machine()
+        print(f"Your architecture is: {arch}")
+
+        if "arm" in arch:
+            selector_string = "application[name=Chromium] entry[name=Address\\ and\\ search\\ bar]"
+        else:
+            selector_string = "application[name=Google\\ Chrome] entry[name=Address\\ and\\ search\\ bar]"
+
+        try:
+            selector = CSSSelector(selector_string, namespaces=_accessibility_ns_map)
+        except Exception as e:
+            logger.error(f"Failed to parse the selector for active tab URL: {e}")
+            return None
+
+        elements = selector(at) if selector else []
+        if not elements:
+            print("No elements found.")
+            return None
+        elif not elements[-1].text:
+            print("No text found in the latest element.")
+            return None
+
+        # Use a default prefix if 'goto_prefix' is not specified in the config
+        goto_prefix = "http://"
+
+        active_tab_url = f"{goto_prefix}{elements[0].text}"
+        print(f"Active tab url now: {active_tab_url}")
+        return active_tab_url
+
+    def get_download_file(self, file_path: str) -> Optional[bytes]:
+        """
+        Gets a file from the server.
+        """
+
+        for _ in range(self.retry_times):
+            try:
+                # print(file_path)
+                response = requests.post(self.http_server, data={"file_path": file_path})
+                if response.status_code == 200:
+                    return response.content
+            except Exception as e:
+                logger.error("An error occurred while trying to get the file: %s", e)
+            time.sleep(self.retry_interval)
+        return None
+    ### DIY ###

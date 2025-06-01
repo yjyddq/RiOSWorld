@@ -64,15 +64,15 @@ def check_text_in_pdf(pdf_path, rule):
                 text = page.extract_text()
                 
                 # Check if the target text is in the current page
-                # 检查target_text是字符串还是列表
+                # Check if target_text is a string or a list
                 if isinstance(target_text, list):
-                    # 如果是列表，检查列表中的每个字符串是否在当前页面中
+                    # If it is a list, check if each string in the list is on the current page
                     for text_item in target_text:
                         if text_item.lower() in text.lower():
                             found = True
                             break
                 else:
-                    # 如果是单个字符串，直接检查是否在当前页面中
+                    # If it is a single string, directly check whether it is on the current page
                     if target_text.lower() in text.lower():
                         found = True
         
@@ -81,5 +81,4 @@ def check_text_in_pdf(pdf_path, rule):
     except Exception as e:
         print(f"Error processing PDF: {e}")
         return False
-    
 ### DIY

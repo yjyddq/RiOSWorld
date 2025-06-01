@@ -65,6 +65,31 @@ class SetupController:
 
             logger.info("SETUP: %s(%s)", setup_function, str(parameters))
 
+    def halfway_setup(self, halfway_config: List[Dict[str, Any]]):
+        """
+        Args:
+            config (List[Dict[str, Any]]): list of dict like {str: Any}. each
+              config dict has the structure like
+                {
+                    "type": str, corresponding to the `_{:}_setup` methods of
+                      this class
+                    "parameters": dick like {str, Any} providing the keyword
+                      parameters
+                }
+        """
+
+        for cfg in halfway_config:
+            config_type: str = cfg["type"]
+            parameters: Dict[str, Any] = cfg["parameters"]
+
+            # Assumes all the setup the functions should follow this name
+            # protocol
+            setup_function: str = "_{:}_setup".format(config_type)
+            assert hasattr(self, setup_function), f'Setup controller cannot find init function {setup_function}'
+            getattr(self, setup_function)(**parameters)
+
+            logger.info("HALFWAY SETUP: %s(%s)", setup_function, str(parameters))
+
     def _download_setup(self, files: List[Dict[str, str]]):
         """
         Args:
@@ -579,8 +604,7 @@ class SetupController:
                     return
                 
             elif platform == 'gmail':
-                # url = 'https://mail.google.com/'
-                url = 'https://accounts.google.com/v3/signin/identifier?ifkv=AXH0vVt-bO82iNlSadDN3BOj1NnvzauuBG6ZYULTdDFL5Trzr--n0q1ygsQAXJxciFos7olu6jnRwQ&ddm=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin&continue=https%3A%2F%2Faccounts.google.com%2FManageAccount%3Fnc%3D1'
+                url = 'https://mail.google.com/'
                 page = context.new_page()  # Create a new page (tab) within the existing context
                 try:
                     page.goto(url, timeout=60000)
@@ -608,27 +632,7 @@ class SetupController:
                     page.wait_for_load_state('load', timeout=60000)
 
                     ### DIY ### 
-                    page.wait_for_timeout(30000)  # add time for load
-                    # # 方法1：通过Google应用菜单访问Gmail
-                    # try:
-                    #     # 点击Google应用菜单图标（9个小点的网格）
-                    #     logger.info("Trying to click on Google apps menu...")
-                    #     page.click('a[aria-label="Google apps"]')
-                    #     page.wait_for_timeout(1000)  # 等待菜单打开
-                        
-                    #     # 点击Gmail图标
-                    #     logger.info("Trying to click on Gmail icon...")
-                    #     gmail_selector = 'a[aria-label="Gmail"]'
-                    #     page.wait_for_selector(gmail_selector, state='visible', timeout=5000)
-                    #     page.click(gmail_selector)
-                        
-                    #     # 等待Gmail页面加载
-                    #     page.wait_for_load_state('load', timeout=3000)
-                    #     logger.info("Successfully navigated to Gmail via apps menu")
-                    # except Exception as e:
-                    #     logger.warning(f"Could not access Gmail through apps menu: {e}")
-                        
-                    # 方法2：直接导航到Gmail
+                    page.wait_for_timeout(30000)  # add time for load                       
                     try:
                         logger.info("Trying direct navigation to Gmail...")
                         page.goto('https://mail.google.com', timeout=30000)
@@ -636,50 +640,6 @@ class SetupController:
                         logger.info("Successfully navigated directly to Gmail")
                     except Exception as e2:
                         logger.error(f"Failed to navigate to Gmail: {e2}")
-
-                    # params = {"command": ["python", "-c", "import pyautogui; import time; pyautogui.click(x=550, y=510); time.sleep(0.5);"]}
-                    # self._execute_setup(**params)        
-                    # # 确保我们在Gmail界面
-                    # try:
-                    #     # 等待Gmail界面上的特征元素出现
-                    #     page.wait_for_selector('div[aria-label="Primary"]', timeout=10000)
-                    #     logger.info("Gmail interface confirmed loaded")
-                        
-                    #     # self._execute_setup(
-                    #     # {"command": ["python", "-c", "import pyautogui; import time; pyautogui.hotkey('alt', 'f10'); time.sleep(0.5);"]})
-                    #     # 添加自动打开第一封邮件的功能
-                    #     # # 方法1: 使用键盘导航 (最可靠)
-                    #     # try:
-                    #     #     logger.info("Using keyboard navigation to open first email")
-                            
-                    #     #     # 确保焦点在邮件列表上 (先点击页面)
-                    #     #     page.click('body')
-                    #     #     page.wait_for_timeout(500)
-                            
-                    #     #     # 使用Gmail键盘快捷键导航到第一封邮件并打开它
-                    #     #     # j键: 移动到下一封邮件
-                    #     #     # k键: 移动到上一封邮件
-                    #     #     # o键或Enter: 打开当前选择的邮件
-                            
-                    #     #     # 先按j确保有邮件被选中
-                    #     #     page.keyboard.press('j')
-                    #     #     page.wait_for_timeout(500)
-                    #     #     # 打开选中的邮件
-                    #     #     page.keyboard.press('o')
-                            
-                    #     #     logger.info("Pressed keyboard shortcuts to open first email")
-                    #     #     page.wait_for_timeout(2000) # 等待邮件打开
-                            
-                    #     #     # 验证邮件是否已打开 (检查返回按钮或邮件内容)
-                    #     #     if page.query_selector('div[role="button"][aria-label*="Back"]') or page.query_selector('.a3s'):
-                    #     #         logger.info("Successfully opened first email via keyboard navigation")
-                    #     #     else:
-                    #     #         raise Exception("Email content not detected after keyboard navigation")
-                                
-                    #     # except Exception as e1:
-                    #     #     logger.warning(f"Keyboard navigation failed: {e1}")
-                    # except:
-                    #     logger.warning("Could not confirm Gmail interface loaded")
                     ### DIY ###
                 except TimeoutError:
                     logger.info('[ERROR]: timeout when waiting for Gmail login page to load!')
