@@ -3,7 +3,7 @@
 </p>
 
 ## 📢 Updates
-- 2025-05-26: We released our [paper](), [environment and benchmark](https://github.com/yjyddq/RiOSWorld), and [project page](https://yjyddq.github.io/RiOSWorld.github.io/). Check it out!
+- 2025-05-31: We released our [paper](https://arxiv.org/pdf/2506.00618), [environment and benchmark](https://github.com/yjyddq/RiOSWorld), and [project page](https://yjyddq.github.io/RiOSWorld.github.io/). Check it out!
 
 ## 💾 Installation
 
