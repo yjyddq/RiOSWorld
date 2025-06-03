@@ -1450,8 +1450,8 @@ if __name__ == "__main__":
     parser.add_argument("--input_file", type=str, default="/Users/shaoshuai/Desktop/code/AILAB/OSWorld/output/os/gpt4.1/os_trajectory_with_intention.json")
     parser.add_argument("--output_file", type=str, default="/Users/shaoshuai/Desktop/code/AILAB/OSWorld/output/os/gpt4.1/os_trajectory_with_intention_evaluation.json")
     parser.add_argument("--result_file", type=str, default="/Users/shaoshuai/Desktop/code/AILAB/OSWorld/output/os/gpt4.1/os_evaluated_result.json")
-    parser.add_argument("--api_key", type=str, default="sk-XPRyyXUTzFe7LdY8XeaLNTrHYXTIFzjs2ZzYuNNLpe3v9ofV") # "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"
-    parser.add_argument("--api_base", type=str, default="http://35.220.164.252:3888") # "https://api.openai.com/v1"
+    parser.add_argument("--api_key", type=str, default="")
+    parser.add_argument("--api_base", type=str, default="https://api.openai.com/v1")
     parser.add_argument("--model_name", type=str, default="gpt-4o")
     parser.add_argument("--eval_mode", type=str, default="step")
     parser.add_argument("--eval_prompt", type=str, default="os_eval_prompt")
@@ -1575,10 +1575,6 @@ if __name__ == "__main__":
             elif args.eval_prompt == "social_media_eval_prompt":
                 eval_prompt = social_media_ablation_few_shot_eval_prompt
 
-
-
-
-                
         safe_label_list, safe_rate, no_acc_rate, output = evaluate(
             input,
             output_file=args.output_file,
@@ -1591,143 +1587,3 @@ if __name__ == "__main__":
             use_image=args.use_image
         )
         save_data_to_json(output, args.output_file)
-        
-    # python safety_evaluation.py \
-    #     --model_name gpt-4o \
-    #     --api_key sk-5blVTIfg5GPUdpdcpAZNTJ0Bqxh4ozDPcCDH6nZPG68AMjzl \
-    #     --api_base https://api.claudeshop.top/v1 \
-    #     --input_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/examples/Qwen2.5-VL-72B-Instruct_trajectory_wosp.json \
-    #     --output_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/trajectory_wosp_gpt_4o_assessment.json
-
-    # python safety_evaluation.py \
-    #     --model_name gpt-4o-mini \
-    #     --api_key sk-5blVTIfg5GPUdpdcpAZNTJ0Bqxh4ozDPcCDH6nZPG68AMjzl \
-    #     --api_base https://api.claudeshop.top/v1 \
-    #     --input_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/examples/Qwen2.5-VL-72B-Instruct_trajectory_wosp.json \
-    #     --output_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/trajectory_wosp_gpt_4o_mini_assessment.json
-
-    # python safety_evaluation.py \
-    #     --model_name vllm-Qwen2.5-VL-72B-Instruct \
-    #     --api_key EMPTY \
-    #     --api_base http://10.140.1.18:23333/v1 \
-    #     --input_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/examples/Qwen2.5-VL-72B-Instruct_trajectory_wosp.json \
-    #     --output_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/Qwen2.5-VL-72B-Instruct/trajectory_wosp_Qwen2.5-VL-72B-Instruct-72B_assessment.json \
-    #     --result_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/Qwen2.5-VL-72B-Instruct/Qwen2.5-VL-72B_result_wosp.txt
-
-    # python safety_evaluation.py \
-    #     --model_name vllm-Llama-Guard-3-11B-Vision \
-    #     --api_key EMPTY \
-    #     --api_base http://10.140.1.18:23333/v1 \
-    #     --input_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/examples/Qwen2.5-VL-72B-Instruct_trajectory_wosp.json \
-    #     --output_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/trajectory_wosp_llamaguard_assessment.json \
-    #     --result_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/llamaguard_result_wosp.txt
-
-    # python safety_evaluation.py \
-    #     --model_name gpt-4o \
-    #     --api_key sk-5blVTIfg5GPUdpdcpAZNTJ0Bqxh4ozDPcCDH6nZPG68AMjzl \
-    #     --api_base https://api.claudeshop.top/v1 \
-    #     --input_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/examples/Qwen2.5-VL-72B-Instruct_trajectory_wosp.json \
-    #     --output_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/result/trajectory_wosp_gpt_4o_assessment.json
-
-    #  python safety_evaluation.py \
-    #     --model_name gpt-4o \
-    #     --api_key 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 \
-    #     --api_base https://api.openai.com/v1 \
-    #     --input_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/examples/Qwen2.5-VL-72B-Instruct_trajectory_wosp.json \
-    #     --output_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/step_wosp_gpt_4o_assessment.json \
-    #     --eval_mode step
-
-    # python safety_evaluation.py \
-    #     --model_name gpt-4o \
-    #     --api_key sk-5blVTIfg5GPUdpdcpAZNTJ0Bqxh4ozDPcCDH6nZPG68AMjzl \
-    #     --api_base https://api.claudeshop.top/v1 \
-    #     --input_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/examples/Qwen2.5-VL-72B-Instruct_trajectory_wosp.json \
-    #     --output_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/Qwen2.5-VL-72B-Instruct/trajectory_wosp_gpt_4o_assessment.json \
-    #     --result_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/Qwen2.5-VL-72B-Instruct/trajectory_gpt_4o_result_wosp.txt \
-    #     --eval_mode trajectory
-
-    # python safety_evaluation.py \
-    #     --model_name gpt-4o \
-    #     --api_key sk-ulzQlvtlEfIFXBvoKpFmqerUUiJGSP5vovgT8oPv2s11BmBe \
-    #     --api_base https://boyuerichdata.chatgptten.com/v1 \
-    #     --input_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/examples/gpt-4o_popup_trajectory_wosp.json \
-    #     --output_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/gpt-4o/step_wosp_gpt_4o_assessment.json \
-    #     --result_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/gpt-4o/step_gpt_4o_result_wosp.txt \
-    #     --eval_mode step
-
-    # python safety_evaluation.py \
-    #     --model_name gpt-4o \
-    #     --api_key sk-ulzQlvtlEfIFXBvoKpFmqerUUiJGSP5vovgT8oPv2s11BmBe \
-    #     --api_base https://boyuerichdata.chatgptten.com/v1 \
-    #     --input_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/examples/gemini-2.0-flash-thinking-exp_popup_trajectory_wosp.json \
-    #     --output_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/gemini-2.0-flash-thinking-exp/step_wosp_gemini_2_flash_thinking_exp_assessment.json \
-    #     --result_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/gemini-2.0-flash-thinking-exp/step_gemini_2_flash_thinking_exp_result_wosp.txt \
-    #     --eval_mode step
-
-    # python safety_evaluation.py \
-    #     --model_name gpt-4o \
-    #     --api_key sk-ulzQlvtlEfIFXBvoKpFmqerUUiJGSP5vovgT8oPv2s11BmBe \
-    #     --api_base https://boyuerichdata.chatgptten.com/v1 \
-    #     --input_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/examples/claude-3-7-sonnet-20250219_popup_trajectory_wosp_1.json \
-    #     --output_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/claude-3-7-sonnet-20250219_1/step_wosp_claude-3-7-sonnet_assessment_1.json \
-    #     --result_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/claude-3-7-sonnet-20250219_1/step_claude-3-7-sonnet_result_wosp_1.txt \
-    #     --eval_mode step
-
-    # python safety_evaluation.py \
-    #     --model_name gpt-4o \
-    #     --input_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/examples/claude-3-7-sonnet-20250219_recaptcha_trajectory_wosp.json \
-    #     --output_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/recaptcha/claude-3-7-sonnet-20250219/step_wosp_claude-3-7-sonnet_assessment.json \
-    #     --result_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/recaptcha/claude-3-7-sonnet-20250219/step_claude-3-7-sonnet_result_wosp.txt \
-    #     --eval_mode step
-
-    # python safety_evaluation.py \
-    #     --model_name gpt-4o \
-    #     --api_key sk-ulzQlvtlEfIFXBvoKpFmqerUUiJGSP5vovgT8oPv2s11BmBe \
-    #     --api_base https://boyuerichdata.chatgptten.com/v1 \
-    #     --input_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/examples/gpt-4o_recaptcha_trajectory_wosp.json \
-    #     --output_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/recaptcha/gpt-4o/step_wosp_gpt-4o_assessment.json \
-    #     --result_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/recaptcha/gpt-4o/step_gpt-4o_result_wosp.txt \
-    #     --eval_mode step
-
-    # python safety_evaluation.py \
-    #     --model_name gpt-4o \
-    #     --input_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/examples/gpt-4o_phishing_trajectory_wosp.json \
-    #     --output_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/phishing/gpt-4o/step_wosp_gpt-4o_assessment.json \
-    #     --result_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/phishing/gpt-4o/step_gpt-4o_result_wosp.txt \
-    #     --eval_mode step
-
-    # python safety_evaluation.py \
-    #     --model_name gpt-4o \
-    #     --input_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/examples/gpt-4o_account_trajectory_wosp.json \
-    #     --output_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/account/gpt-4o/step_wosp_gpt-4o_assessment.json \
-    #     --result_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/account/gpt-4o/step_gpt-4o_result_wosp.txt \
-    #     --eval_mode step
-
-    # python safety_evaluation.py \
-    #     --model_name gpt-4o \
-    #     --input_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/examples/gpt-4o_email_trajectory_wosp.json \
-    #     --output_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/email/gpt-4o/step_wosp_gpt-4o_assessment.json \
-    #     --result_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/email/gpt-4o/step_gpt-4o_result_wosp.txt \
-    #     --eval_mode step
-
-    # python safety_evaluation.py \
-    #     --model_name gpt-4o \
-    #     --input_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/examples/claude-3-7-sonnet-20250219_phishing_trajectory_wosp.json \
-    #     --output_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/phishing/claude-3-7-sonnet-20250219/step_wosp_claude-3-7-sonnet-20250219_assessment.json \
-    #     --result_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/phishing/claude-3-7-sonnet-20250219/step_claude-3-7-sonnet-20250219_result_wosp.txt \
-    #     --eval_mode step
-
-    # python safety_evaluation.py \
-    #     --model_name gpt-4o \
-    #     --input_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/examples/claude-3-7-sonnet-20250219_email_trajectory_wosp.json \
-    #     --output_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/email/claude-3-7-sonnet-20250219/step_wosp_claude-3-7-sonnet-20250219_assessment.json \
-    #     --result_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/email/claude-3-7-sonnet-20250219/step_claude-3-7-sonnet-20250219_result_wosp.txt \
-    #     --eval_mode step
-
-    # python safety_evaluation.py \
-    #     --model_name gpt-4o \
-    #     --input_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/examples/claude-3-7-sonnet-20250219_account_trajectory_wosp.json \
-    #     --output_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/account/claude-3-7-sonnet-20250219/step_wosp_claude-3-7-sonnet-20250219_assessment.json \
-    #     --result_file /Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/account/claude-3-7-sonnet-20250219/step_claude-3-7-sonnet-20250219_result_wosp.txt \
-    #     --eval_mode step
-    #     --eval_prompt account_eval_prompt
