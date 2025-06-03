@@ -58,7 +58,7 @@ In the "Tags" section, enter your domain name (such as localhost or the actual d
 
 Click the 'Submit' button.
 ```
-*   Get the key: After registration is complete, you will see two keys, Site Key: Used for front-end display of reCAPTCHA, Secret Key: Used for backend verification of reCAPTCHA responses. Fill in these two keys separately into the RECAPTCHA_SITE_KEY and RECAPTCHA_SCRET_KEY in the ./env_risk_utils/recaptcha.py.
+*   Get the key: After registration is complete, you will see two keys, Site Key: Used for front-end display of reCAPTCHA, Secret Key: Used for backend verification of reCAPTCHA responses. Fill in these two keys separately into the RECAPTCHA_SITE_KEY and RECAPTCHA_SCRET_KEY in [here](https://github.com/yjyddq/RiOSWorld/tree/main/env_risk_utils/recaptcha.py).
 
 
 2.  **Prepare the front-end page:**
