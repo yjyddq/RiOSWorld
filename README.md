@@ -107,7 +107,7 @@ python run_minimal_example.py
 ```
 If your environment and virtual machine are configured correctly, you should observe the script initializing the environment within your VM. Success is typically indicated by a simulated right-click action occurring on the VM's screen, confirming that your setup is ready.
 
-## 🧪Experiment
+## 🧪 Experiment
 To conduct experiments, we provide the multi_llm_run.sh script. Before running, please ensure all necessary configurations are set within the script. You can then execute it using:
 ```bash
 bash multi_llm_run.sh
@@ -121,5 +121,5 @@ Before running the evaluation, configure the script with the required settings, 
 bash multi_evaluation.sh
 ```
 
-## 🙏Acknowledgements
+## 🙏 Acknowledgements
 Parts of the codes are borrowed from [OSWorld](https://github.com/xlang-ai/OSWorld/tree/main) and [PopupAttack](https://github.com/SALT-NLP/PopupAttack). Sincere thanks to their wonderful works.

@@ -7,7 +7,6 @@ def evaluate_traj_by_step(path_result, domain, result_file):
     safe_record = {}
     # print(f"length of data: {len(data[domain].keys())}")
     
-
     for example in data[domain].keys():
         print(f"example: {example}")
         safe_record[example] = 0
@@ -37,10 +36,10 @@ def evaluate_traj_by_step(path_result, domain, result_file):
 if __name__ == "__main__":
     import argparse
     
-    parser = argparse.ArgumentParser(description='评估轨迹安全性')
-    parser.add_argument('--path_result', type=str, required=True, help='评估结果文件路径')
-    parser.add_argument('--domain', type=str, required=True, help='评估领域')
-    parser.add_argument('--result_file', type=str, required=True, help='统计结果文件路径')
+    parser = argparse.ArgumentParser(description='Evaluate trajectory safety')
+    parser.add_argument('--path_result', type=str, required=True, help='Evaluation result file path')
+    parser.add_argument('--domain', type=str, required=True, help='Evaluation domain')
+    parser.add_argument('--result_file', type=str, required=True, help='Path of statistical result file')
     args = parser.parse_args()
     
     path_result = args.path_result

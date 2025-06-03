@@ -172,16 +172,6 @@ def check_safe_flag(data):
 # 主程序
 if __name__ == "__main__":
     '''intention metrics'''
-    # 替换为你的JSON文件路径
-    # file_path = "/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/popup/claude-3-5-sonnet/step_wosp_claude_3_5_sonnet_assessment.json"
-    # file_path = "/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/popup/claude-3-7-sonnet/step_wosp_claude_3_7_sonnet_assessment.json"
-    # file_path = "/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/popup/gemini-2.0-flash-thinking-exp/step_wosp_gemini_2_flash_thinking_exp_assessment.json"
-    # file_path = "/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/recaptcha/claude-3-7-sonnet-20250219/step_wosp_claude-3-7-sonnet_assessment.json"
-    # file_path = "/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/phishing/gpt-4o/step_wosp_gpt-4o_assessment.json"
-    # file_path = "/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/account/gpt-4o/step_wosp_gpt-4o_assessment.json"
-    # file_path = "/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/email/gpt-4o/step_wosp_gpt-4o_assessment.json"
-    # file_path = "/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/phishing/claude-3-7-sonnet-20250219/step_wosp_claude-3-7-sonnet-20250219_assessment.json"
-    # file_path = "/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/test/results/email/claude-3-7-sonnet-20250219/step_wosp_claude-3-7-sonnet-20250219_assessment.json"
     file_path = "/Users/shaoshuai/Desktop/code/AILAB/OSWorld/output/os/gpt-4o/os_evaluated_result.json"
 
     data = load_json(file_path)
@@ -191,34 +181,13 @@ if __name__ == "__main__":
 
     '''click metrics'''
     popup_result = {}
-    # file_list = ["/Users/yangjingyi/PycharmProjects/pythonProject/PopupAttack/OSWorld/logs/Claude-3-5-0-20250319@001646.log", "/Users/yangjingyi/PycharmProjects/pythonProject/PopupAttack/OSWorld/logs/Claude-3-5-1-20250319@004008.log"]
-    # file_list = ["/Users/yangjingyi/PycharmProjects/pythonProject/PopupAttack/OSWorld/logs/Claude-3-7-0-20250318@200709.log", "/Users/yangjingyi/PycharmProjects/pythonProject/PopupAttack/OSWorld/logs/Claude-3-7-1-20250318@213356.log"]
-    # file_list = ["/Users/yangjingyi/PycharmProjects/pythonProject/PopupAttack/OSWorld/logs/sdebug-20250320@161209.log"]
-    # file_list = ["/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/logs/gpt-4o-recaptcha-sdebug-20250402@163909.log"]
-    # file_list = ["/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/logs/claude-3-7-sonnet-20250219-recaptcha-sdebug-20250403@221939.log"]
-    # file_list = ["/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/logs/gpt-4o-phishing-0-sdebug-20250404@174807.log",
-    #              "/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/logs/gpt-4o-phishing-1-sdebug-20250404@205123.log",
-    #              "/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/logs/gpt-4o-phishing-2-sdebug-20250404@215242.log"]
-    # file_list = ["/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/logs/gpt-4o-account-sdebug-20250405@023446.log"]
-    # file_list = ["/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/logs/gpt-4o-account-sdebug-20250405@194637.log"]
-    # file_list = ["/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/logs/gpt-4o-email-0-sdebug-20250406@173510.log",
-    #              "/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/logs/gpt-4o-email-1-sdebug-20250406@185518.log"]
-    # file_list = ["/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/logs/claude-3-7-sonnet-20250219-phishing-0-sdebug-20250407@210246.log",
-    #              "/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/logs/claude-3-7-sonnet-20250219-phishing-1-sdebug-20250409@162750.log"]
-    # file_list = ["/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/logs/claude-3-7-sonnet-20250219-email-sdebug-20250409@212742.log"]
     file_list = ["/Users/shaoshuai/Desktop/code/AILAB/OSWorld/logs/sdebug-20250427@170352.log"] 
 
     for file_path in file_list:
         extra_result = analyze_log_file(file_path)
         popup_result.update(extra_result)
     print(extra_result.keys())
-    # results_dir = '/Users/yangjingyi/PycharmProjects/pythonProject/PopupAttack/OSWorld/adv_results4/pyautogui/screenshot/claude-3-7-sonnet-20250219'  # 这里是你的results目录的路径
-    # results_dir = '/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/unsafe_test_results/env/recaptcha/pyautogui/screenshot/gpt-4o'  # 这里是你的results目录的路径
-    # results_dir = '/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/unsafe_test_results/env/recaptcha/pyautogui/screenshot/claude-3-7-sonnet-20250219'  # 这里是你的results目录的路径
-    # results_dir = '/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/unsafe_test_results/env/phishing/pyautogui/screenshot/gpt-4o'  # 这里是你的results目录的路径
-    # results_dir = '/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/unsafe_test_results/env/email/pyautogui/screenshot/gpt-4o'  # 这里是你的results目录的路径
-    # results_dir = '/Users/yangjingyi/PycharmProjects/pythonProject/OSWorld/unsafe_test_results/env/email/pyautogui/screenshot/claude-3-7-sonnet-20250219'  # 这里是你的results目录的路径
-    results_dir = '/Users/shaoshuai/Desktop/code/AILAB/OSWorld/os_result_evaluate/gpt-4o/os_20250427_170344/pyautogui/screenshot_a11y_tree/gpt-4o/os/'  # 这里是你的results目录的路径
+    results_dir = '/Users/shaoshuai/Desktop/code/AILAB/OSWorld/os_result_evaluate/gpt-4o/os_20250427_170344/pyautogui/screenshot_a11y_tree/gpt-4o/os/' 
 
     trajectory_data = process_directory(results_dir, popup_result)
     unsafe_rate = sum(trajectory_data) / len(trajectory_data)

@@ -229,7 +229,7 @@ def trim_accessibility_tree(linearized_accessibility_tree, max_tokens):
         linearized_accessibility_tree += "[...]\n"
     return linearized_accessibility_tree
 
-def filter_bounding_boxes(bounding_boxes, nodes, max_width=1520, max_height=680):
+def filter_bounding_boxes(bounding_boxes, nodes, max_width=1920, max_height=1080):
     """
     Filters out bounding boxes larger than the specified width and height.
     

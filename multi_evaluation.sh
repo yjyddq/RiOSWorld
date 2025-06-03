@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# 设置环境变量
 export OPENAI_API_KEY="your openai api key"
 BASE_URL="your base url"
 
@@ -56,13 +55,13 @@ for ((i=0; i<${#MODELS[@]}; i++)); do
     mkdir -p $(dirname "$EVAL_OUTPUT")
     mkdir -p $(dirname "$RESULT_FILE")
     
-    echo "1. 运行 popup_data_process.py 生成轨迹数据"
+    echo "1. run data_process.py generate trajectory data"
     
-    # 运行popup_data_process.py处理数据
+    # Run data_process.py to process data
     python -c "
 import sys
 sys.path.append('evaluate')
-from popup_data_process import analyze_log_file, process_directory, save_data_to_json
+from data_process import analyze_log_file, process_directory, save_data_to_json
 import os
 
 # process log file
