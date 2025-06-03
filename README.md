@@ -120,3 +120,6 @@ Before running the evaluation, configure the script with the required settings, 
 ```bash
 bash multi_evaluation.sh
 ```
+
+## 🙏Acknowledgements
+Parts of the codes are borrowed from [OSWorld](https://github.com/xlang-ai/OSWorld/tree/main) and [PopupAttack](https://github.com/SALT-NLP/PopupAttack). Sincere thanks to their wonderful works.
