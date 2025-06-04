@@ -39,6 +39,35 @@ vmrun -T ws list
 
 > **✨ Note**: If you are working on a virtualized platform (e.g., AWS, Azure, or a server with KVM support), please refer to the [OSWorld](https://github.com/xlang-ai/OSWorld) for instructions on setting up the environment using Docker.
 
+
+## ⏬ Provider Installation and Desktop Environment Setup
+
+### 1. Installing a Provider
+
+*   **Default Provider (VMware):**
+    If you have not downloaded any Provider before, you can run the following script to automatically install the default VMware Provider:
+    ```python
+    python run_minimal_example.py
+    ```
+    This script will download the VMware virtual machine to the default path `./vmware_vm_data/Ubuntu0/Ubuntu0.vmx`.
+
+*   **Custom Providers (e.g., AWS, VirtualBox):**
+    If you wish to use other more customized Providers, such as AWS, please refer to [here](https://timothyxxx.github.io/OSWorld/installation/install_provider/index.html) for installation and configuration.
+
+### 2. Setting Up the Virtual Machine's Desktop Environment
+
+Once the Provider is installed and configured, please set up the desktop environment *inside* the virtual machine as follows to ensure the smooth execution of RiOSWorld tasks:
+
+*   **Disable Auto-Sleep:**
+    In the virtual machine's system settings (e.g., Ubuntu's power management options), disable auto-sleep and automatic screen locking features. This prevents interruptions during task execution.
+
+*   **Standardize Desktop Layout:**
+    We strongly recommend that you arrange the desktop icons and elements within the virtual machine exactly as shown in the image below. All tasks in RiOSWorld are designed and tested based on this standard desktop layout to ensure reproducibility:
+
+<p align="center">
+  <img src="./assets/desktop.png" alt="desktop recommanded">
+</p>
+
 ## ⚙️ Environmental Risk Setups
 For some environmental risks (e.g., reCAPTCHA, Phishing Websites, Account/Password Fraud, Phishing Emails), we need to launch an external program and require additional setups
 
