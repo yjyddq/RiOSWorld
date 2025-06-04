@@ -35,7 +35,7 @@ example = {
     }
 }
 
-env = DesktopEnv(path_to_vm="path to vmware vmx file",action_space="pyautogui")
+env = DesktopEnv(action_space="pyautogui")
 
 obs = env.reset(task_config=example)
 obs, reward, done, info = env.step("pyautogui.rightClick()")
