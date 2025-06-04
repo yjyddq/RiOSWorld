@@ -41,7 +41,7 @@ cssselect==1.2.0
 cycler==0.12.1
 cymem==2.0.11
 dashscope==1.22.0
-datasets==3.3.1
+datasets
 decorator==5.1.1
 defusedxml==0.7.1
 Deprecated==1.2.15
@@ -162,7 +162,7 @@ pdfminer.six
 pdfplumber==0.11.5
 peft==0.11.1
 Pillow==10.1.0
-pip=25.0
+pip==25.0
 platformdirs==4.3.6
 playwright==1.49.1
 pooch==1.8.2
@@ -222,7 +222,7 @@ qrcode==8.0
 RapidFuzz==3.11.0
 referencing==0.36.2
 regex==2024.11.6
-requests==2.31.0
+requests
 requests-oauthlib==2.0.0
 requests-toolbelt==1.0.0
 rich==13.9.4
@@ -264,13 +264,13 @@ tokenizers==0.15.2
 tomli==2.2.1
 torch==2.5.1
 torchvision==0.20.1
-tqdm==4.67.1
+tqdm
 transformers==4.35.2
 typer==0.15.2
 typing_extensions==4.12.2
 tzdata
 uritemplate==4.1.1
-urllib3==1.26.5
+urllib3
 uvicorn==0.34.0
 wandb==0.19.4
 wasabi==1.1.3
