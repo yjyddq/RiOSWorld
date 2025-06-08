@@ -98,7 +98,7 @@ For example:
                 ]
             }
         }
-],
+]
 ```
 
 ### 👷 reCAPTCHA
