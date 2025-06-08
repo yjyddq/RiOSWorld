@@ -150,5 +150,19 @@ Before running the evaluation, configure the script with the required settings, 
 bash multi_evaluation.sh
 ```
 
+## 🔗 Bibtex
+If this paper, code or project are useful for you, please consider citing our paper :mega:
+```
+@misc{yang2025riosworldbenchmarkingriskmultimodal,
+        title={RiOSWorld: Benchmarking the Risk of Multimodal Computer-Use Agents}, 
+        author={Jingyi Yang and Shuai Shao and Dongrui Liu and Jing Shao},
+        year={2025},
+        eprint={2506.00618},
+        archivePrefix={arXiv},
+        primaryClass={cs.AI},
+        url={https://arxiv.org/abs/2506.00618}, 
+}
+```
+
 ## 🙏 Acknowledgements
 Parts of the codes are borrowed from [OSWorld](https://github.com/xlang-ai/OSWorld/tree/main) and [PopupAttack](https://github.com/SALT-NLP/PopupAttack). Sincere thanks to their wonderful works.
