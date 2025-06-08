@@ -7,7 +7,6 @@
 
 ## 💾 Installation
 
-
 For non-virtualized systems (e.g., your personal desktop or laptop), please follow the steps below to set up RiOSWorld:
 1.  First, clone the repository and set up the Python environment. We recommend using Conda for environment management.
 ```bash
