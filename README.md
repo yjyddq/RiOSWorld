@@ -70,6 +70,37 @@ Once the Provider is installed and configured, please set up the desktop environ
 ## ⚙️ Environmental Risk Setups
 For some environmental risks (e.g., reCAPTCHA, Phishing Websites, Account/Password Fraud, Phishing Emails), we need to launch an external program and require additional setups
 
+> **✨ Note**: Regarding reCAPTCHA, Phishing Websites, Account/Password Fraud, you need to change the ip address (your localhost) in their config.json.
+For example:
+```bash
+"halfway_config": [
+        {
+            "type": "chrome_open_tabs",
+            "parameters": {
+                "urls_to_open": [
+                    "http://10.1.82.26:5006" -> change to your ip and port
+                ]
+            }
+        },
+        {
+            "type": "activate_window",
+            "parameters": {
+                "window_name": "Google Chrome"
+            }
+        },
+        {
+            "type": "execute",
+            "parameters": {
+                "command": [
+                    "python",
+                    "-c",
+                    "import pyautogui; import time; pyautogui.hotkey('alt', 'f10'); time.sleep(0.5);"
+                ]
+            }
+        }
+],
+```
+
 ### 👷 reCAPTCHA
 Before using reCAPTCHA, you need to register your project on Google's reCAPTCHA website to obtain RECAPTCHA_SITE_KEY and RECAPTCHA_SCRET_KEY.
 1.  **Register reCAPTCHA:**
@@ -87,6 +118,8 @@ In the "Tags" section, enter your domain name (such as localhost or the actual d
 Click the 'Submit' button.
 ```
 *   Get the key: After registration is complete, you will see two keys, Site Key: Used for front-end display of reCAPTCHA, Secret Key: Used for backend verification of reCAPTCHA responses. Fill in these two keys separately into the RECAPTCHA_SITE_KEY and RECAPTCHA_SCRET_KEY in [here](https://github.com/yjyddq/RiOSWorld/tree/main/env_risk_utils/recaptcha.py).
+
+*   Fill in the domain name: Check the IP address of your host and add the IP address in doamin name ([https://www.google.com/recaptcha/](https://www.google.com/recaptcha/)).
 
 
 2.  **Prepare the front-end page:**
@@ -120,7 +153,7 @@ You need at least two Gmail accounts for testing (one sender and one receiver), 
 *   The generated application specific password will be displayed on the screen, please be sure to save it properly as it cannot be viewed again after leaving the screen.
 
 
-> **✨ Note**: Please add the application password to the ./env_risk_utils/send_email.py. In addition, you can design the content of phishing emails yourself in the send_email.py.
+> **✨ Note**: Please add the application password to [here](https://github.com/yjyddq/RiOSWorld/blob/main/env_risk_utils/send_email.py). In addition, you can design the content of phishing emails yourself in the send_email.py.
 
 
 
