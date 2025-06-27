@@ -17,7 +17,7 @@ git clone https://github.com/yjyddq/RiOSWorld
 cd RiOSWorld
 
 # Create an environment for RiOSWorld
-conda create -n RiOSWorld python==3.10
+conda create -n RiOSWorld python==3.9
 conda activate RiOSWorld
 
 # Install required dependencies
@@ -25,8 +25,8 @@ pip install -r requirements.txt
 ```
 
 2.  Next, install a virtual machine (VM) hypervisor based on your operating system: 
-*   **For macOS:** We recommend installing [VMware Fusion](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware+Fusion) 
-*   **For Windows:** You can install either[VMware Workstation Pro](https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html) or [VMware Fusion](https://support.broadcom.com/group/ecx/productdownloads?subfamily=VMware+Fusion).
+*   **For macOS:** We recommend installing [VMware Fusion](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion) 
+*   **For Windows:** You can install either [VMware Workstation Pro](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion) or [VMware Fusion](https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion).
 
 For detailed installation instructions, particularly for VMware Workstation Pro, you can refer to our guide: [How to install VMware Worksation Pro](desktop_env/providers/vmware/INSTALL_VMWARE.md) 
 
