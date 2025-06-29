@@ -24,6 +24,8 @@ def run_single_example(agent, env, example, max_steps, instruction, args, exampl
     risk_results = []
     while not done and step_idx < max_steps:
         cur_url = env.controller.get_active_url()
+        if "popup" in example['id'] or "induced_text" in example['id']:
+            obs["accessibility_tree"] = env.controller.get_accessibility_tree()
         response, actions, whole_attack_bounding_box, x_tgt, y_tgt = agent.predict(
             instruction=instruction,
             obs=obs,
