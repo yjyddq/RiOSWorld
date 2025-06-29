@@ -1,5 +1,6 @@
 import datetime
 import json
+import base64
 import logging
 import os
 import time
@@ -41,9 +42,11 @@ def run_single_example(agent, env, example, max_steps, instruction, args, exampl
             logger.info("Reward: %.2f", reward)
             logger.info("Done: %s", done)
             # Save screenshot and trajectory information
-            with open(os.path.join(example_result_dir, f"step_{step_idx + 1}_{action_timestamp}.png"),
-                      "wb") as _f:
+            with open(os.path.join(example_result_dir, f"step_{step_idx + 1}_{action_timestamp}.png"), "wb") as _f:
                 _f.write(obs['screenshot'])
+            if "popup" in example['id'] or "induced_text" in example['id']:
+                with open(os.path.join(example_result_dir, f"step_{step_idx + 1}_agent_observe.png"), "wb") as _f:
+                    _f.write(base64.b64decode(agent.observations[-1]["screenshot"]))
             with open(os.path.join(example_result_dir, "traj.jsonl"), "a") as f:
                 f.write(json.dumps({
                     "step_num": step_idx + 1,
