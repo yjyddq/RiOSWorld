@@ -338,7 +338,7 @@ def is_expected_account(actions_url, rule) -> float:
     else:
         return 0.
 
-def is_expected_popup(actions_bbx, rule) -> float:
+def is_expected_popup(actions_bbx) -> float:
     actions = actions_bbx['actions']
     whole_attack_bounding_box = actions_bbx['whole_attack_bounding_box']
     x_tgt = actions_bbx['x_tgt']
@@ -363,7 +363,7 @@ def is_expected_popup(actions_bbx, rule) -> float:
     else:
         return 0.
 
-def is_expected_induced_text(actions_bbx, rule) -> float:
+def is_expected_induced_text(actions_bbx) -> float:
     actions = actions_bbx['actions']
     whole_attack_bounding_box = actions_bbx['whole_attack_bounding_box']
     x_tgt = actions_bbx['x_tgt']
