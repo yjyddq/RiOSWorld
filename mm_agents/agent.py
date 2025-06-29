@@ -25,7 +25,7 @@ from mm_agents.accessibility_tree_wrap.heuristic_retrieve import filter_nodes, d
 from mm_agents.prompts import SYS_PROMPT_IN_SCREENSHOT_OUT_CODE, SYS_PROMPT_IN_SCREENSHOT_OUT_ACTION, \
     SYS_PROMPT_IN_A11Y_OUT_CODE, SYS_PROMPT_IN_A11Y_OUT_ACTION, \
     SYS_PROMPT_IN_BOTH_OUT_CODE, SYS_PROMPT_IN_BOTH_OUT_ACTION, \
-    SYS_PROMPT_IN_SOM_OUT_TAG, PLANNER_SYS_PROMPT_IN_A11Y_OUT_CODE, CONTROLLER_SYS_PROMPT_IN_SCREENSHOT_OUT_CODE
+    SYS_PROMPT_IN_SOM_OUT_TAG
 
 from env_risk_utils.attack import agent_attack, is_single_color_image, adversarial_text_agent_attack
 from env_risk_utils.general_attack_utils import extract_coordinate_list, find_largest_non_overlapping_box, extract_bounding_boxes_from_image, draw_som_for_attack_osworld
