@@ -109,7 +109,7 @@ def config() -> argparse.Namespace:
 
     # example config
     parser.add_argument("--domain", type=str, default="all")
-    parser.add_argument("--snapshot_name", type=str, default="restart_state_0411")
+    parser.add_argument("--snapshot_name", type=str, default="restart_state_never_sleep")
     parser.add_argument(
         "--test_all_meta_path", type=str, default="evaluation_examples/test_all.json"
     )
