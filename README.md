@@ -69,7 +69,10 @@ Once the Provider is installed and configured, please set up the desktop environ
 </p>
 
 *   **Snapshot Name:**
-    Please note to change the snapshot name in https://github.com/yjyddq/RiOSWorld/blob/610d72af85d61d23b3a68e28db090e408ae80e38/run.py#L112 and https://github.com/yjyddq/RiOSWorld/blob/610d72af85d61d23b3a68e28db090e408ae80e38/desktop_env/desktop_env.py#L32 to the name of your snapshot
+    Please note to change the snapshot name in 
+    https://github.com/yjyddq/RiOSWorld/blob/610d72af85d61d23b3a68e28db090e408ae80e38/run.py#L112 
+    https://github.com/yjyddq/RiOSWorld/blob/610d72af85d61d23b3a68e28db090e408ae80e38/desktop_env/desktop_env.py#L32 
+    to the name of your snapshot name.
 
 ## ⚙️ Environmental Risk Setups
 For some environmental risks (e.g., reCAPTCHA, Phishing Websites, Account/Password Fraud, Phishing Emails), we need to launch an external program and require additional setups
