@@ -555,7 +555,7 @@ def adversarial_text_agent_attack(attack_config, current_observation, largest_no
     else:
         current_observation = fill_bounding_box_with_text(current_observation, button_bounding_box, attack_config.notice, init_font_size=30, fill_color="lightgray")
 
-        ad_texts_path = "./induced_texts/induced_texts.json"
+        ad_texts_path = "./env_risk_utils/induced_texts/induced_texts.json"
         with open(ad_texts_path, 'r') as f:
             ad_texts = json.load(f)
         
