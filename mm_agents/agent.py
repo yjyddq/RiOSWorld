@@ -300,7 +300,6 @@ def agent_attack_wrapper(attack_config, instruction, button_name_dict, current_b
                                                                                                             instruction=instruction, \
                                                                                                             customized_print=log_info, \
                                                                                                             content_str=content_str)
-   
     image_bytes_io = BytesIO()
     current_observation.save(image_bytes_io, format='PNG')
     current_observation = image_bytes_io.getvalue()
@@ -334,6 +333,7 @@ class PromptAgent:
         self.thoughts = []
         self.actions = []
         self.observations = []
+        self.button_name_dict = {}
 
         if observation_type == "screenshot":
             if action_space == "computer_13":
@@ -501,7 +501,7 @@ class PromptAgent:
                 else:
                     attack_config = False
                 current_observation = obs["screenshot"]
-                current_boundingbox, nodes, _, linearized_accessibility_tree, _ = tag_screenshot(obs["screenshot"], obs["accessibility_tree"], self.platform)
+                current_boundingbox, nodes, _, linearized_accessibility_tree = tag_screenshot(obs["screenshot"], obs["accessibility_tree"], self.platform)
                 current_observation, skip, self.button_name_dict, whole_attack_bounding_box, x_tgt, y_tgt, attack_string = agent_attack_wrapper(attack_config, instruction, self.button_name_dict, current_boundingbox, nodes, current_observation, content_str=linearized_accessibility_tree)
                 base64_image = encode_image(current_observation)
             else:
