@@ -3,7 +3,7 @@
 </p>
 
 <div align="center">
-  <h1>[RiOSWorld: Benchmarking the Risk of Multimodal Computer-Use Agents](https://arxiv.org/pdf/2506.00618)</h1>
+  <h1><a href="https://arxiv.org/pdf/2506.00618" target="_blank">RiOSWorld: Benchmarking the Risk of Multimodal Computer-Use Agents</a></h1>
   <span style="color:red">📢 <strong><i>We are currently organizing and presenting the code for RiOSWorld. 
   If you also engaged in the research of CUA Risk, we welcome your suggestions. If you have any questions about the code, feel free to create an issue. 
   If you are interested in our work, please star ⭐ our project.</i></strong></span>
