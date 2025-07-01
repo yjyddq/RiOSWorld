@@ -2,15 +2,22 @@
   <img src="./assets/demo_logo.png" alt="Banner">
 </p>
 
-<p align="center">
-<h4>
+<div align="center">
+  <h1>[RiOSWorld: Benchmarking the Risk of Multimodal Computer-Use Agents](https://arxiv.org/pdf/2506.00618)</h1>
+  <span style="color:red">📢 <strong><i>We are currently organizing and presenting the code for RiOSWorld. 
+  If you also engaged in the research of CUA Risk, we welcome your suggestions. If you have any questions about the code, feel free to create an issue. 
+  If you are interested in our work, please star ⭐ our project.</i></strong></span>
+  <h4>
     <img src="https://img.shields.io/badge/Version-1.0.0-blue.svg" alt="Version"> 
     <img src="https://img.shields.io/badge/License-Apache_2.0-green.svg" alt="License">
     <img src="https://visitor-badge.laobi.icu/badge?page_id=yjyddq.RiOSWorld" />
     <img src="https://img.shields.io/github/stars/yjyddq/RiOSWorld?color=yellow" alt="Stars">
     <img src="https://img.shields.io/github/issues/yjyddq/RiOSWorld?color=red" alt="Issues">
-</h4>
-</p>
+  </h4>
+</div>
+
+
+We have currently organized and presented the code for RiOSWorld. If you are also engaged in the research of CUA Risk, we welcome your suggestions. If you have any questions about the code, feel free to create an issue. If you are interested in our work, please give us a star.
 
 ## 📢 Updates
 - 2025-06-30: Please note that there are mistakes in the original [evaluation_risk_examples/test_phishing_email.json](https://github.com/yjyddq/RiOSWorld/blob/main/evaluation_risk_examples/test_phishing_email.json) file, which has been corrected. Please download the latest version. We add a ip_setting.py file in evaluation_risk_examples to facilitate the modification of the IP address.
