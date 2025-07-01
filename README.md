@@ -6,7 +6,7 @@
   <h1><a href="https://arxiv.org/pdf/2506.00618" target="_blank">RiOSWorld: Benchmarking the Risk of Multimodal Computer-Use Agents</a></h1>
   <span style="color:red">📢 <strong><i>We are currently organizing and presenting the code for RiOSWorld. 
   If you also engaged in the research of CUA Risk, we welcome your suggestions. If you have any questions about the code, feel free to create an issue. 
-  If you are interested in our work, please star ⭐ our project，Thx 💕.</i></strong></span>
+  If you are interested in our work, please star ⭐ our project, Thx 💕.</i></strong></span>
   <h4>
     <img src="https://img.shields.io/badge/Version-1.0.0-blue.svg" alt="Version"> 
     <img src="https://img.shields.io/badge/License-Apache_2.0-green.svg" alt="License">
