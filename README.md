@@ -16,7 +16,7 @@
   </h4>
 </div>
 
-<video src="./assets/RiOSWorld_demo.mp4" controls width="500"></video>
+<video src="assets/RiOSWorld_demo.mp4" controls width="500"></video>
 
 ## 📢 Updates
 - 2025-06-30: Please note that there are **mistakes** in the original [evaluation_risk_examples/test_phishing_email.json](https://github.com/yjyddq/RiOSWorld/blob/main/evaluation_risk_examples/test_phishing_email.json) file, which has been corrected. Please download the latest version. We add a ip_setting.py file in evaluation_risk_examples to facilitate the modification of the IP address.
