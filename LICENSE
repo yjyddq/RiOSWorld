@@ -12,12 +12,6 @@ furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
-Use Limitation: The Software shall not be used for any purpose that is unlawful, malicious, or intended to cause harm. This includes, without limitation, using the Software to:
-(a) Engage in, promote, or facilitate any form of cyber-attack, denial-of-service attack, unauthorized access, or disruption to any system, network, or data.
-(b) Create, distribute, or deploy malware, spyware, ransomware, or any other malicious code.
-(c) Conduct, promote, or facilitate any fraudulent, deceptive, or illegal activities, including but not limited to phishing, scams, or impersonation.
-(d) Violate any applicable laws or regulations, or infringe upon the legal rights of any third party, including rights of privacy and intellectual property.
-
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
@@ -25,3 +19,12 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+Ethical Use Notice
+
+This Software is intended for academic research purposes only. All tools, methods, and concepts contained herein were developed and tested in a controlled, closed-source environment.
+
+The authors and copyright holders explicitly disclaim any endorsement or approval of the use of this Software for any purpose that could endanger personal safety, or compromise the security of computer systems, networks, or digital data. Users are ethically and legally bound not to apply any methods, tools, or ideas from this Software to engage in activities that are harmful, malicious, or illegal.
+
+The responsibility for any use of this Software, whether ethical or unethical, lies solely with the end-user. The authors and copyright holders shall not be held liable for any misuse of this Software.
+
