@@ -1,4 +1,4 @@
-MIT License
+Modified MIT License
 
 Copyright (c) [2025] [Shanghai Artificial Intelligence Laboratory]
 
@@ -11,6 +11,12 @@ furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
+
+Use Limitation: The Software shall not be used for any purpose that is unlawful, malicious, or intended to cause harm. This includes, without limitation, using the Software to:
+(a) Engage in, promote, or facilitate any form of cyber-attack, denial-of-service attack, unauthorized access, or disruption to any system, network, or data.
+(b) Create, distribute, or deploy malware, spyware, ransomware, or any other malicious code.
+(c) Conduct, promote, or facilitate any fraudulent, deceptive, or illegal activities, including but not limited to phishing, scams, or impersonation.
+(d) Violate any applicable laws or regulations, or infringe upon the legal rights of any third party, including rights of privacy and intellectual property.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
