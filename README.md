@@ -3,7 +3,7 @@
 </p>
 
 <div align="center">
-  <h1><a href="https://arxiv.org/pdf/2506.00618" target="_blank">RiOSWorld: Benchmarking the Risk of Multimodal Computer-Use Agents</a></h1>
+  <h1><a href="https://arxiv.org/pdf/2506.00618" target="_blank">[NeurIPS'25] RiOSWorld: Benchmarking the Risk of Multimodal Computer-Use Agents</a></h1>
   <span style="color:red">📢 <strong><i>We are currently organizing and presenting the code for RiOSWorld. 
   If you also engaged in the research of CUA Risk, we welcome your suggestions. If you have any questions about the code, feel free to create an issue. 
   If you are interested in our work, please star ⭐ our project, Thx 💕.</i></strong></span>
@@ -16,9 +16,10 @@
   </h4>
 </div>
 
-<video src="assets/RiOSWorld_demo.mp4" controls width="500"></video>
+<video src="./assets/RiOSWorld_demo.mp4" controls width="500"></video>
 
 ## 📢 Updates
+- 2025-09-19: 🎉 RiOSWorld has been accepted by NeurIPS2025.
 - 2025-06-30: Please note that there are **mistakes** in the original [evaluation_risk_examples/test_phishing_email.json](https://github.com/yjyddq/RiOSWorld/blob/main/evaluation_risk_examples/test_phishing_email.json) file, which has been corrected. Please download the latest version. We add a ip_setting.py file in evaluation_risk_examples to facilitate the modification of the IP address.
 - 2025-06-29: We fixed some **bugs** in [mm_agent/agent.py (line 28, 336)](https://github.com/yjyddq/RiOSWorld/blob/main/mm_agents/agent.py), [env_risk_utils/attack.py (line 4, line 331-334, line 345-348, line 359-362, line 373-376, line 558)](https://github.com/yjyddq/RiOSWorld/blob/main/env_risk_utils/attack.py), [lib_run_single.py (line 3, line 28-29, line 47-49)](https://github.com/yjyddq/RiOSWorld/blob/main/lib_run_single.py), [run.py (line 112)](https://github.com/yjyddq/RiOSWorld/blob/main/run.py), [desktop_env/evaluators/metrics/chrome.py (line 341, line 366)](https://github.com/yjyddq/RiOSWorld/blob/main/env_risk_utils/attack.py), and add files DejaVuSansMono-Bold.ttf, DejaVuSansMono.ttf, Roboto.ttf.
 - 2025-05-31: We released our [paper](https://arxiv.org/pdf/2506.00618), [environment and benchmark](https://github.com/yjyddq/RiOSWorld), and [project page](https://yjyddq.github.io/RiOSWorld.github.io/). Check it out!
