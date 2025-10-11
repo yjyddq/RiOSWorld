@@ -210,6 +210,13 @@ bash multi_evaluation.sh
 ## 🔗 Bibtex
 If this paper, code or project are useful for you, please consider citing our paper :mega:
 ```
+@article{yang2025riosworld,
+  title={RiOSWorld: Benchmarking the Risk of Multimodal Compter-Use Agents},
+  author={Yang, Jingyi and Shao, Shuai and Liu, Dongrui and Shao, Jing},
+  journal={arXiv preprint arXiv:2506.00618},
+  year={2025}
+}
+
 @misc{yang2025riosworldbenchmarkingriskmultimodal,
         title={RiOSWorld: Benchmarking the Risk of Multimodal Computer-Use Agents}, 
         author={Jingyi Yang and Shuai Shao and Dongrui Liu and Jing Shao},
