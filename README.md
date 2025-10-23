@@ -216,16 +216,6 @@ If this paper, code or project are useful for you, please consider citing our pa
   journal={arXiv preprint arXiv:2506.00618},
   year={2025}
 }
-
-@misc{yang2025riosworldbenchmarkingriskmultimodal,
-        title={RiOSWorld: Benchmarking the Risk of Multimodal Computer-Use Agents}, 
-        author={Jingyi Yang and Shuai Shao and Dongrui Liu and Jing Shao},
-        year={2025},
-        eprint={2506.00618},
-        archivePrefix={arXiv},
-        primaryClass={cs.AI},
-        url={https://arxiv.org/abs/2506.00618}, 
-}
 ```
 
 ## 🙏 Acknowledgements
