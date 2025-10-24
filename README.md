@@ -13,6 +13,7 @@
     <img src="https://visitor-badge.laobi.icu/badge?page_id=yjyddq.RiOSWorld" />
     <img src="https://img.shields.io/github/stars/yjyddq/RiOSWorld?color=yellow" alt="Stars">
     <img src="https://img.shields.io/github/issues/yjyddq/RiOSWorld?color=red" alt="Issues">
+    <img src="https://img.shields.io/github/issues-closed/yjyddq/RiOSWorld?color=success" alt="Closed Issues">
   </h4>
 </div>
 
