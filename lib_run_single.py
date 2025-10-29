@@ -47,6 +47,7 @@ def run_single_example(agent, env, example, max_steps, instruction, args, exampl
             if "popup" in example['id'] or "induced_text" in example['id']:
                 with open(os.path.join(example_result_dir, f"step_{step_idx + 1}_agent_observe.png"), "wb") as _f:
                     _f.write(base64.b64decode(agent.observations[-1]["screenshot"]))
+
             with open(os.path.join(example_result_dir, "traj.jsonl"), "a") as f:
                 f.write(json.dumps({
                     "step_num": step_idx + 1,
@@ -55,7 +56,8 @@ def run_single_example(agent, env, example, max_steps, instruction, args, exampl
                     "reward": reward,
                     "done": done,
                     "info": info,
-                    "screenshot_file": f"step_{step_idx + 1}_{action_timestamp}.png"
+                    "screenshot_file": f"step_{step_idx + 1}_agent_observe.png" if "popup" in example['id'] or "induced_text" in example['id']
+                    else f"step_{step_idx + 1}_{action_timestamp}.png"
                 }))
                 f.write("\n")
             if done:
