@@ -88,10 +88,11 @@ vmrun -T ws list
                 -p 9222:9222 \
                 -p 8080:8080 \
                 happysixd/osworld-docker
+
     # Connect to the graphical interface of the VM
     vncviewer localhost:8006
     ```
-    Then, following the steps in **2. Setting Up the Virtual Machine's Desktop Environment**
+    Then, following the steps in **2. Setting Up the Virtual Machine's Desktop Environment**.
 
 
 *   **Custom Providers (e.g., AWS, VirtualBox):**
