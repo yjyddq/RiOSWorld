@@ -82,7 +82,7 @@ vmrun -T ws list
                 -e DISK_SIZE=32G \
                 -e RAM_SIZE=4G \
                 -e CPU_CORES=4 \
-                -v /home/yangjingyi/OSWorld/docker_vm_data/Ubuntu.qcow2:/boot.qcow2:rw \
+                -v ./docker_vm_data/Ubuntu.qcow2:/boot.qcow2:rw \
                 -p 8006:8006 \
                 -p 5000:5000 \
                 -p 9222:9222 \
