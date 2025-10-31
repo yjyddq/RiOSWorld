@@ -92,7 +92,7 @@ vmrun -T ws list
     # Connect to the graphical interface of the VM
     vncviewer localhost:8006
     ```
-    Then, following the steps in **2. Setting Up the Virtual Machine's Desktop Environment**.
+    Then, following the steps in **2. Setting Up the Virtual Machine's Desktop Environment**. Power off the VM can save the newest state automatically.
 
 
 *   **Custom Providers (e.g., AWS, VirtualBox):**
