@@ -70,6 +70,30 @@ vmrun -T ws list
     ```
     This script will download the VMware virtual machine to the default path `./vmware_vm_data/Ubuntu0/Ubuntu0.vmx`.
 
+*   **Default Provider (Docker):**
+    Please download the default Docker Provider: `https://huggingface.co/datasets/xlangai/ubuntu_osworld/resolve/main/Ubuntu.qcow2.zip` to the default path `./docker_vm_data/`.
+
+    Then, starting a virtual machine using Docker:
+    ```python
+    # Starting a virtual machine (VM), note using rw for writable
+    docker run -it \
+                --cap-add=NET_ADMIN \
+                --device=/dev/kvm \
+                -e DISK_SIZE=32G \
+                -e RAM_SIZE=4G \
+                -e CPU_CORES=4 \
+                -v /home/yangjingyi/OSWorld/docker_vm_data/Ubuntu.qcow2:/boot.qcow2:rw \
+                -p 8006:8006 \
+                -p 5000:5000 \
+                -p 9222:9222 \
+                -p 8080:8080 \
+                happysixd/osworld-docker
+    # Connect to the graphical interface of the VM
+    vncviewer localhost:8006
+    ```
+    Then, following the steps in **2. Setting Up the Virtual Machine's Desktop Environment**
+
+
 *   **Custom Providers (e.g., AWS, VirtualBox):**
     If you wish to use other more customized Providers, such as AWS, please refer to [here](https://timothyxxx.github.io/OSWorld/installation/install_provider/index.html) for installation and configuration.
 
