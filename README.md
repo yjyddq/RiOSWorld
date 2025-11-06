@@ -25,7 +25,7 @@
 
 ## 📢 Updates
 - 2025-11-05: (**Important Update**) To support further research and help community develops trustworthy computer-use agents, we release the evaluation trajectory data of RiOSWorld on [HuggingFace JY-Young/RiOSWorld/trajectory_data.zip](https://huggingface.co/datasets/JY-Young/RiOSWorld/tree/main). This data is now available for researchers to use and build upon.
-- 2025-11-01: We added the guidline of how to set snapshots when using Docker provider in the [README](#-1-installing-a-provider), as issued by [Issue](https://github.com/yjyddq/RiOSWorld/issues/11).
+- 2025-11-01: We added the guidline of how to set snapshots when using Docker provider in the [README](#1-installing-a-provider), as issued by [Issue](https://github.com/yjyddq/RiOSWorld/issues/11).
 - 2025-10-30: We fixed the bugs proposed by [Issue](https://github.com/yjyddq/RiOSWorld/issues/9).
 - 2025-09-19: 🎉 RiOSWorld has been accepted by NeurIPS2025.
 - 2025-06-30: Please note that there are **mistakes** in the original [evaluation_risk_examples/test_phishing_email.json](https://github.com/yjyddq/RiOSWorld/blob/main/evaluation_risk_examples/test_phishing_email.json) file, which has been corrected. Please download the latest version. We add a ip_setting.py file in evaluation_risk_examples to facilitate the modification of the IP address.
