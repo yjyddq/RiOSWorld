@@ -7,19 +7,25 @@
   <span style="color:red">📢 <strong><i>We are currently organizing and presenting the code for RiOSWorld. 
   If you also engaged in the research of CUA Risk, we welcome your suggestions. If you have any questions about the code, feel free to create an issue. 
   If you are interested in our work, please star ⭐ our project, Thx 💕.</i></strong></span>
-  <h4>
-    <img src="https://img.shields.io/badge/Version-1.0.0-blue.svg" alt="Version"> 
-    <img src="https://img.shields.io/badge/License-Apache_2.0-green.svg" alt="License">
-    <img src="https://visitor-badge.laobi.icu/badge?page_id=yjyddq.RiOSWorld" />
-    <img src="https://img.shields.io/github/stars/yjyddq/RiOSWorld?color=yellow" alt="Stars">
-    <img src="https://img.shields.io/github/issues/yjyddq/RiOSWorld?color=red" alt="Issues">
-    <img src="https://img.shields.io/github/issues-closed/yjyddq/RiOSWorld?color=success" alt="Closed Issues">
-  </h4>
+</div>
+
+<div align="center">
+
+[![Paper](https://img.shields.io/badge/Paper-arXiv:2506.00618-red)](https://arxiv.org/pdf/2506.00618)
+[![HuggingFace](https://img.shields.io/badge/🤗%20HuggingFace-Datasets-yellow)](https://huggingface.co/datasets/JY-Young/RiOSWorld)
+<img src="https://img.shields.io/badge/License-Apache_2.0-green.svg" alt="License">
+<img src="https://visitor-badge.laobi.icu/badge?page_id=yjyddq.RiOSWorld" />
+<img src="https://img.shields.io/github/stars/yjyddq/RiOSWorld?color=yellow" alt="Stars">
+<img src="https://img.shields.io/github/issues/yjyddq/RiOSWorld?color=red" alt="Issues">
+<img src="https://img.shields.io/github/issues-closed/yjyddq/RiOSWorld?color=success" alt="Closed Issues">
+
 </div>
 
 <video src="./assets/RiOSWorld_demo.mp4" controls width="500"></video>
 
 ## 📢 Updates
+- 2025-11-05: (**Important Update**) To support further research in this field and help community develops more trustworthy computer-use agents, we release the evaluation trajectory data of RiOSWorld on [HuggingFace](https://huggingface.co/datasets/JY-Young/RiOSWorld). This data is now available for researchers to use and build upon.
+- 2025-10-30: We fix the bugs proposed by [Issue](https://github.com/yjyddq/RiOSWorld/issues/9).
 - 2025-09-19: 🎉 RiOSWorld has been accepted by NeurIPS2025.
 - 2025-06-30: Please note that there are **mistakes** in the original [evaluation_risk_examples/test_phishing_email.json](https://github.com/yjyddq/RiOSWorld/blob/main/evaluation_risk_examples/test_phishing_email.json) file, which has been corrected. Please download the latest version. We add a ip_setting.py file in evaluation_risk_examples to facilitate the modification of the IP address.
 - 2025-06-29: We fixed some **bugs** in [mm_agent/agent.py (line 28, 336)](https://github.com/yjyddq/RiOSWorld/blob/main/mm_agents/agent.py), [env_risk_utils/attack.py (line 4, line 331-334, line 345-348, line 359-362, line 373-376, line 558)](https://github.com/yjyddq/RiOSWorld/blob/main/env_risk_utils/attack.py), [lib_run_single.py (line 3, line 28-29, line 47-49)](https://github.com/yjyddq/RiOSWorld/blob/main/lib_run_single.py), [run.py (line 112)](https://github.com/yjyddq/RiOSWorld/blob/main/run.py), [desktop_env/evaluators/metrics/chrome.py (line 341, line 366)](https://github.com/yjyddq/RiOSWorld/blob/main/env_risk_utils/attack.py), and add files DejaVuSansMono-Bold.ttf, DejaVuSansMono.ttf, Roboto.ttf.
