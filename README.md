@@ -12,7 +12,7 @@
 <div align="center">
 
 [![Paper](https://img.shields.io/badge/Paper-arXiv:2506.00618-red)](https://arxiv.org/pdf/2506.00618)
-[![HuggingFace](https://img.shields.io/badge/🤗%20HuggingFace-Datasets-yellow)](https://huggingface.co/datasets/JY-Young/RiOSWorld)
+[![HuggingFace](https://img.shields.io/badge/🤗%20HuggingFace-Datasets-yellow)](https://huggingface.co/datasets/JY-Young/RiOSWorld/tree/main)
 <img src="https://img.shields.io/badge/License-Apache_2.0-green.svg" alt="License">
 <img src="https://visitor-badge.laobi.icu/badge?page_id=yjyddq.RiOSWorld" />
 <img src="https://img.shields.io/github/stars/yjyddq/RiOSWorld?color=yellow" alt="Stars">
