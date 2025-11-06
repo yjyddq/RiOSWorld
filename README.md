@@ -25,7 +25,8 @@
 
 ## 📢 Updates
 - 2025-11-05: (**Important Update**) To support further research and help community develops trustworthy computer-use agents, we release the evaluation trajectory data of RiOSWorld on [HuggingFace JY-Young/RiOSWorld/trajectory_data.zip](https://huggingface.co/datasets/JY-Young/RiOSWorld/tree/main). This data is now available for researchers to use and build upon.
-- 2025-10-30: We fix the bugs proposed by [Issue](https://github.com/yjyddq/RiOSWorld/issues/9).
+- 2025-11-01: We added the guidline of how to set snapshots when using Docker provider in the [README](### 1. Installing a Provider), as issued by [Issue](https://github.com/yjyddq/RiOSWorld/issues/11).
+- 2025-10-30: We fixed the bugs proposed by [Issue](https://github.com/yjyddq/RiOSWorld/issues/9).
 - 2025-09-19: 🎉 RiOSWorld has been accepted by NeurIPS2025.
 - 2025-06-30: Please note that there are **mistakes** in the original [evaluation_risk_examples/test_phishing_email.json](https://github.com/yjyddq/RiOSWorld/blob/main/evaluation_risk_examples/test_phishing_email.json) file, which has been corrected. Please download the latest version. We add a ip_setting.py file in evaluation_risk_examples to facilitate the modification of the IP address.
 - 2025-06-29: We fixed some **bugs** in [mm_agent/agent.py (line 28, 336)](https://github.com/yjyddq/RiOSWorld/blob/main/mm_agents/agent.py), [env_risk_utils/attack.py (line 4, line 331-334, line 345-348, line 359-362, line 373-376, line 558)](https://github.com/yjyddq/RiOSWorld/blob/main/env_risk_utils/attack.py), [lib_run_single.py (line 3, line 28-29, line 47-49)](https://github.com/yjyddq/RiOSWorld/blob/main/lib_run_single.py), [run.py (line 112)](https://github.com/yjyddq/RiOSWorld/blob/main/run.py), [desktop_env/evaluators/metrics/chrome.py (line 341, line 366)](https://github.com/yjyddq/RiOSWorld/blob/main/env_risk_utils/attack.py), and add files DejaVuSansMono-Bold.ttf, DejaVuSansMono.ttf, Roboto.ttf.
