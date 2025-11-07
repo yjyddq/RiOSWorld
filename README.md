@@ -243,6 +243,12 @@ bash multi_evaluation.sh
 ## 🔗 Bibtex
 If this paper, code or project are useful for you, please consider citing our paper :mega:
 ```
+@inproceedings{jingyiriosworld,
+  title={RiOSWorld: Benchmarking the Risk of Multimodal Computer-Use Agents},
+  author={JingYi, Yang and Shao, Shuai and Liu, Dongrui and Shao, Jing},
+  booktitle={The Thirty-ninth Annual Conference on Neural Information Processing Systems}
+}
+
 @article{yang2025riosworld,
   title={RiOSWorld: Benchmarking the Risk of Multimodal Compter-Use Agents},
   author={Yang, Jingyi and Shao, Shuai and Liu, Dongrui and Shao, Jing},
