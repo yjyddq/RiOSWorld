@@ -15,7 +15,7 @@
 [![HuggingFace](https://img.shields.io/badge/🤗%20HuggingFace-Datasets-yellow)](https://huggingface.co/datasets/JY-Young/RiOSWorld/tree/main)
 <img src="https://img.shields.io/badge/License-Apache_2.0-green.svg" alt="License">
 <img src="https://visitor-badge.laobi.icu/badge?page_id=yjyddq.RiOSWorld" />
-<img src="https://img.shields.io/github/stars/yjyddq/RiOSWorld?color=yellow" alt="Stars">
+<img src="https://img.shields.io/github/downloads/yjyddq/RiOSWorld/total.svg" alt="Downloads">
 <img src="https://img.shields.io/github/issues/yjyddq/RiOSWorld?color=red" alt="Issues">
 <img src="https://img.shields.io/github/issues-closed/yjyddq/RiOSWorld?color=success" alt="Closed Issues">
 
