@@ -248,13 +248,6 @@ If this paper, code or project are useful for you, please consider citing our pa
   author={JingYi, Yang and Shao, Shuai and Liu, Dongrui and Shao, Jing},
   booktitle={The Thirty-ninth Annual Conference on Neural Information Processing Systems}
 }
-
-@article{yang2025riosworld,
-  title={RiOSWorld: Benchmarking the Risk of Multimodal Compter-Use Agents},
-  author={Yang, Jingyi and Shao, Shuai and Liu, Dongrui and Shao, Jing},
-  journal={arXiv preprint arXiv:2506.00618},
-  year={2025}
-}
 ```
 
 ## 🙏 Acknowledgements
